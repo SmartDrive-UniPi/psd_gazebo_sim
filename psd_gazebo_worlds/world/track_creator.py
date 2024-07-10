@@ -240,23 +240,21 @@ def generate_sdf(inner, outer):
     '''
 
     cone_model_template = '''
-    
       <link name='cone_{}_link'>
         <collision name='cone_{}_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
+            <geometry>
+                <box>
+                    <size>0.2 4 0.2</size>
+                </box>
+            </geometry>
         </collision>
         <visual name='cone_{}_visual'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
+            <geometry>
+                    <mesh>
+                    <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
+                    <scale>0.001 0.001 0.001</scale>
+                    </mesh>
+                </geometry>
           <material>
             <ambient>{}</ambient>
             <diffuse>{}</diffuse>
@@ -264,7 +262,6 @@ def generate_sdf(inner, outer):
           </material>
         </visual>
         <pose>{}</pose>
-        <enable_wind>false</enable_wind>
       </link>'''
 
     cones = ""
@@ -326,7 +323,7 @@ def main():
     sdf_content = generate_sdf(scaled_inner, scaled_outer)
 
 
-    with open("track_decimate.sdf", "w") as f:
+    with open("track_base.sdf", "w") as f:
         f.write(sdf_content)
 
 if __name__ == "__main__":

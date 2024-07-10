@@ -141,8 +141,7 @@
         <collision>
           <origin xyz="0.0 0.0 0.0" rpy="0 ${rot90} 0"/>
           <geometry>
-            <mesh filename="$(find psd_vehicle_description)/meshes/stl/tyre.stl" scale="0.001 0.001 0.001"/>
-          </geometry>
+            <cylinder length="0.001" radius="${wheel_radius}"/> </geometry>
         </collision>
       </link>
     </xacro:macro>
