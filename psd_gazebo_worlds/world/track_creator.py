@@ -7,9 +7,17 @@ def generate_sdf(inner, outer):
     <world name='track'>
 
         <!-- PHYSICS -->
-        <physics name="1ms" type="ignored">
+        <!-- http://sdformat.org/spec?ver=1.11&elem=physics#physics_real_time_update_rate  -->
+        <physics name="1ms" type="dart">
             <max_step_size>0.001</max_step_size>
             <real_time_factor>1.0</real_time_factor>
+            <max_contacts>1000</max_contacts>
+            <dart>
+                <solver>
+                    <solver_type>pgs</solver_type>
+                </solver>
+                <collision_detector>bullet</collision_detector>
+            </dart>
         </physics>
 
         <gravity>0 0 -9.8</gravity>
@@ -326,7 +334,7 @@ def main():
     sdf_content = generate_sdf(scaled_inner, scaled_outer)
 
 
-    with open("track_decimate.sdf", "w") as f:
+    with open("track_full.sdf", "w") as f:
         f.write(sdf_content)
 
 if __name__ == "__main__":

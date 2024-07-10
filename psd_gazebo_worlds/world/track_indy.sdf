@@ -4,25 +4,17 @@
   <world name='track'>
 
     <!-- PHYSICS -->
-    <physics name="1ms" type="bullet">
-        <max_step_size>0.001</max_step_size>  
+    <!-- http://sdformat.org/spec?ver=1.11&elem=physics#physics_real_time_update_rate  -->
+    <physics name="1ms" type="dart">
+        <max_step_size>0.001</max_step_size>
         <real_time_factor>1.0</real_time_factor>
-
-        <bullet>
+        <max_contacts>1000</max_contacts>
+        <dart>
             <solver>
-                <type>sequential_impulse</type> 
-                <iterations>100</iterations>           
-                <sor>1.5</sor>                     
-                <split_impulse>true</split_impulse>  
-                <split_impulse_penetration_threshold>-0.001</split_impulse_penetration_threshold>  
+                <solver_type>pgs</solver_type>
             </solver>
-            <constraints>
-                <cfm>0.0</cfm>       
-                <erp>0.99</erp>      
-                <contact_surface_layer>0.0</contact_surface_layer>  
-            </constraints>
-        </bullet>
-
+            <collision_detector>bullet</collision_detector>
+        </dart>
     </physics>
 
     <gravity>0 0 -9.8</gravity>
