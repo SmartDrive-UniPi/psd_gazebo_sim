@@ -7,9 +7,16 @@ def generate_sdf(inner, outer):
     <world name='track'>
 
         <!-- PHYSICS -->
-        <physics name="1ms" type="ignored">
+        <physics name="1ms" type="dart">
             <max_step_size>0.001</max_step_size>
             <real_time_factor>1.0</real_time_factor>
+            <max_contacts>1000</max_contacts>
+            <dart>
+                <solver>
+                    <solver_type>pgs</solver_type>
+                </solver>
+                <collision_detector>bullet</collision_detector>
+            </dart>
         </physics>
 
         <gravity>0 0 -9.8</gravity>
@@ -236,7 +243,7 @@ def generate_sdf(inner, outer):
 
     cone_model_template = '''
       <model name='cone_{}'>
-        <allow_auto_disable>true</allow_auto_disable>
+        
         <static>true</static>
         <self_collide>false</self_collide>
         <collision name='cone_{}_collision'>
