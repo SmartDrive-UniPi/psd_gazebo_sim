@@ -166,7 +166,7 @@ def generate_launch_description():
         ]
     )
 
-    world_file = "/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_base.sdf"
+    world_file = "/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_multiple_models.sdf"
     # world_file = "empty.sdf"
 
     # Bridge

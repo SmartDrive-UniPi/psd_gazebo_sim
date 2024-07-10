@@ -228,20 +228,17 @@ def generate_sdf(inner, outer):
         <!-- ......... -->
 
         <!-- TRACK -->    
-        <model name='cones'>
-            <allow_auto_disable>true</allow_auto_disable>
-            <pose>0 0 0 0 0 0</pose>
-            {}
-      <static>true</static>
-      <self_collide>false</self_collide>
-    </model>
+        {}
   </world>
 </sdf>
     
     '''
 
     cone_model_template = '''
-      <link name='cone_{}_link'>
+      <model name='cone_{}'>
+        <allow_auto_disable>true</allow_auto_disable>
+        <static>true</static>
+        <self_collide>false</self_collide>
         <collision name='cone_{}_collision'>
             <geometry>
                 <box>
@@ -263,7 +260,7 @@ def generate_sdf(inner, outer):
           </material>
         </visual>
         <pose>{}</pose>
-      </link>'''
+      </model>'''
 
     cones = ""
     for i, coord in enumerate(inner):
@@ -324,7 +321,7 @@ def main():
     sdf_content = generate_sdf(scaled_inner, scaled_outer)
 
 
-    with open("track_base.sdf", "w") as f:
+    with open("track_multiple_models.sdf", "w") as f:
         f.write(sdf_content)
 
 if __name__ == "__main__":
