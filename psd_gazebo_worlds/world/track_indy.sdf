@@ -239,27 +239,22 @@
             <collision name='track_collision'>
                 <geometry>
                     <mesh>
-                        <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/indy_track/meshes/pista_inclinata_lineare.stl</uri>
+                        <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/indy_track/meshes/pista_con_muretto.stl</uri>
                         <scale>0.001 0.001 0.001</scale>
                     </mesh>
                 </geometry>
-                <surface>
-                    <friction>
-                        <ode>
-                            <mu>1.0</mu>  
-                            <mu2>1.0</mu2> 
-                        </ode>
-                        <bullet>
-                            <friction>1.0</friction> 
-                            <friction2>1.0</friction2>
-                        </bullet>
-                    </friction>
-                </surface>
+                <soft_contact>
+                    <dart>
+                        <stiffness>10000000</stiffness>
+                    </dart>
+                </soft_contact>
+                <max_contacts>1000</max_contacts>
+                <density>1000</density>
             </collision>
             <visual name='track_visual'>
                 <geometry>
                     <mesh>
-                        <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/indy_track/meshes/pista_inclinata_lineare.stl</uri>
+                        <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/indy_track/meshes/pista_con_muretto.stl</uri>
                         <scale>0.1 0.1 0.1</scale>
                     </mesh>
                 </geometry>
