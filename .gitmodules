@@ -1,6 +1,6 @@
 [submodule "ros_components_description"]
 	path = ros_components_description
-	url = https://github.com/husarion/ros_components_description
+	url = https://github.com/SmartDrive-UniPi/ros_components_description
 	branch = ros2-zed
 [submodule "gz_ros2_control"]
 	path = gz_ros2_control
