@@ -4,17 +4,9 @@
     <world name='track'>
 
         <!-- PHYSICS -->
-        <!-- http://sdformat.org/spec?ver=1.11&elem=physics#physics_real_time_update_rate  -->
-        <physics name="1ms" type="dart">
+        <physics name="1ms" type="ignored">
             <max_step_size>0.001</max_step_size>
             <real_time_factor>1.0</real_time_factor>
-            <max_contacts>1000</max_contacts>
-            <dart>
-                <solver>
-                    <solver_type>pgs</solver_type>
-                </solver>
-                <collision_detector>bullet</collision_detector>
-            </dart>
         </physics>
 
         <gravity>0 0 -9.8</gravity>
@@ -27,7 +19,6 @@
         <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
         <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
         <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
-        <plugin name="gz::sim::systems::Imu" filename="gz-sim-imu-system"/>
         
         <gui fullscreen='0'>
             <!-- 3D scene -->
@@ -206,10 +197,10 @@
                     </material>
                 </visual>
 
-                <pose>0 0 0 0 -0 0</pose>
+                <pose>0 0 0 0 0 0</pose>
 
                 <inertial>
-                    <pose>0 0 0 0 -0 0</pose>
+                    <pose>0 0 0 0 0.0 0</pose>
                     <mass>1</mass>
                     <inertia>
                         <ixx>1</ixx>
@@ -225,7 +216,7 @@
 
             </link>
 
-            <pose>0 0 0 0 -0 0</pose>
+            <pose>0 0 0 0 0.006 0</pose>
 
             <self_collide>false</self_collide>
         </model>
@@ -233,19 +224,14 @@
         <!-- ......... -->
 
         <!-- TRACK -->    
+
+        <!-- TRACK -->    
         <model name='cones'>
             <pose>0 0 0 0 0 0</pose>
             
     
       <link name='cone_0_link'>
-        <collision name='cone_0_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_0_visual'>
           <geometry>
             <mesh>
@@ -264,14 +250,7 @@
       </link>
     
       <link name='cone_1_link'>
-        <collision name='cone_1_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_1_visual'>
           <geometry>
             <mesh>
@@ -290,14 +269,7 @@
       </link>
     
       <link name='cone_2_link'>
-        <collision name='cone_2_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_2_visual'>
           <geometry>
             <mesh>
@@ -316,14 +288,7 @@
       </link>
     
       <link name='cone_3_link'>
-        <collision name='cone_3_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_3_visual'>
           <geometry>
             <mesh>
@@ -342,14 +307,7 @@
       </link>
     
       <link name='cone_4_link'>
-        <collision name='cone_4_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_4_visual'>
           <geometry>
             <mesh>
@@ -368,14 +326,7 @@
       </link>
     
       <link name='cone_5_link'>
-        <collision name='cone_5_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_5_visual'>
           <geometry>
             <mesh>
@@ -394,14 +345,7 @@
       </link>
     
       <link name='cone_6_link'>
-        <collision name='cone_6_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_6_visual'>
           <geometry>
             <mesh>
@@ -420,14 +364,7 @@
       </link>
     
       <link name='cone_7_link'>
-        <collision name='cone_7_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_7_visual'>
           <geometry>
             <mesh>
@@ -446,14 +383,7 @@
       </link>
     
       <link name='cone_8_link'>
-        <collision name='cone_8_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_8_visual'>
           <geometry>
             <mesh>
@@ -472,14 +402,7 @@
       </link>
     
       <link name='cone_9_link'>
-        <collision name='cone_9_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_9_visual'>
           <geometry>
             <mesh>
@@ -498,14 +421,7 @@
       </link>
     
       <link name='cone_10_link'>
-        <collision name='cone_10_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_10_visual'>
           <geometry>
             <mesh>
@@ -524,14 +440,7 @@
       </link>
     
       <link name='cone_11_link'>
-        <collision name='cone_11_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_11_visual'>
           <geometry>
             <mesh>
@@ -550,14 +459,7 @@
       </link>
     
       <link name='cone_12_link'>
-        <collision name='cone_12_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_12_visual'>
           <geometry>
             <mesh>
@@ -576,14 +478,7 @@
       </link>
     
       <link name='cone_13_link'>
-        <collision name='cone_13_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_13_visual'>
           <geometry>
             <mesh>
@@ -602,14 +497,7 @@
       </link>
     
       <link name='cone_14_link'>
-        <collision name='cone_14_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_14_visual'>
           <geometry>
             <mesh>
@@ -628,14 +516,7 @@
       </link>
     
       <link name='cone_15_link'>
-        <collision name='cone_15_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_15_visual'>
           <geometry>
             <mesh>
@@ -654,14 +535,7 @@
       </link>
     
       <link name='cone_16_link'>
-        <collision name='cone_16_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_16_visual'>
           <geometry>
             <mesh>
@@ -680,14 +554,7 @@
       </link>
     
       <link name='cone_17_link'>
-        <collision name='cone_17_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_17_visual'>
           <geometry>
             <mesh>
@@ -706,14 +573,7 @@
       </link>
     
       <link name='cone_18_link'>
-        <collision name='cone_18_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_18_visual'>
           <geometry>
             <mesh>
@@ -732,14 +592,7 @@
       </link>
     
       <link name='cone_19_link'>
-        <collision name='cone_19_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_19_visual'>
           <geometry>
             <mesh>
@@ -758,14 +611,7 @@
       </link>
     
       <link name='cone_20_link'>
-        <collision name='cone_20_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_20_visual'>
           <geometry>
             <mesh>
@@ -784,14 +630,7 @@
       </link>
     
       <link name='cone_21_link'>
-        <collision name='cone_21_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_21_visual'>
           <geometry>
             <mesh>
@@ -810,14 +649,7 @@
       </link>
     
       <link name='cone_22_link'>
-        <collision name='cone_22_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_22_visual'>
           <geometry>
             <mesh>
@@ -836,14 +668,7 @@
       </link>
     
       <link name='cone_23_link'>
-        <collision name='cone_23_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_23_visual'>
           <geometry>
             <mesh>
@@ -862,14 +687,7 @@
       </link>
     
       <link name='cone_24_link'>
-        <collision name='cone_24_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_24_visual'>
           <geometry>
             <mesh>
@@ -888,14 +706,7 @@
       </link>
     
       <link name='cone_25_link'>
-        <collision name='cone_25_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_25_visual'>
           <geometry>
             <mesh>
@@ -914,14 +725,7 @@
       </link>
     
       <link name='cone_26_link'>
-        <collision name='cone_26_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_26_visual'>
           <geometry>
             <mesh>
@@ -940,14 +744,7 @@
       </link>
     
       <link name='cone_27_link'>
-        <collision name='cone_27_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_27_visual'>
           <geometry>
             <mesh>
@@ -966,14 +763,7 @@
       </link>
     
       <link name='cone_28_link'>
-        <collision name='cone_28_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_28_visual'>
           <geometry>
             <mesh>
@@ -992,14 +782,7 @@
       </link>
     
       <link name='cone_29_link'>
-        <collision name='cone_29_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_29_visual'>
           <geometry>
             <mesh>
@@ -1018,14 +801,7 @@
       </link>
     
       <link name='cone_30_link'>
-        <collision name='cone_30_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_30_visual'>
           <geometry>
             <mesh>
@@ -1044,14 +820,7 @@
       </link>
     
       <link name='cone_31_link'>
-        <collision name='cone_31_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_31_visual'>
           <geometry>
             <mesh>
@@ -1070,14 +839,7 @@
       </link>
     
       <link name='cone_32_link'>
-        <collision name='cone_32_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_32_visual'>
           <geometry>
             <mesh>
@@ -1096,14 +858,7 @@
       </link>
     
       <link name='cone_33_link'>
-        <collision name='cone_33_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_33_visual'>
           <geometry>
             <mesh>
@@ -1122,14 +877,7 @@
       </link>
     
       <link name='cone_34_link'>
-        <collision name='cone_34_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_34_visual'>
           <geometry>
             <mesh>
@@ -1148,14 +896,7 @@
       </link>
     
       <link name='cone_35_link'>
-        <collision name='cone_35_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_35_visual'>
           <geometry>
             <mesh>
@@ -1174,14 +915,7 @@
       </link>
     
       <link name='cone_36_link'>
-        <collision name='cone_36_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_36_visual'>
           <geometry>
             <mesh>
@@ -1200,14 +934,7 @@
       </link>
     
       <link name='cone_37_link'>
-        <collision name='cone_37_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_37_visual'>
           <geometry>
             <mesh>
@@ -1226,14 +953,7 @@
       </link>
     
       <link name='cone_38_link'>
-        <collision name='cone_38_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_38_visual'>
           <geometry>
             <mesh>
@@ -1252,14 +972,7 @@
       </link>
     
       <link name='cone_39_link'>
-        <collision name='cone_39_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_39_visual'>
           <geometry>
             <mesh>
@@ -1278,14 +991,7 @@
       </link>
     
       <link name='cone_40_link'>
-        <collision name='cone_40_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_40_visual'>
           <geometry>
             <mesh>
@@ -1304,14 +1010,7 @@
       </link>
     
       <link name='cone_41_link'>
-        <collision name='cone_41_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_41_visual'>
           <geometry>
             <mesh>
@@ -1330,14 +1029,7 @@
       </link>
     
       <link name='cone_42_link'>
-        <collision name='cone_42_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_42_visual'>
           <geometry>
             <mesh>
@@ -1356,14 +1048,7 @@
       </link>
     
       <link name='cone_43_link'>
-        <collision name='cone_43_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_43_visual'>
           <geometry>
             <mesh>
@@ -1382,14 +1067,7 @@
       </link>
     
       <link name='cone_44_link'>
-        <collision name='cone_44_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_44_visual'>
           <geometry>
             <mesh>
@@ -1408,14 +1086,7 @@
       </link>
     
       <link name='cone_45_link'>
-        <collision name='cone_45_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_45_visual'>
           <geometry>
             <mesh>
@@ -1434,14 +1105,7 @@
       </link>
     
       <link name='cone_46_link'>
-        <collision name='cone_46_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_46_visual'>
           <geometry>
             <mesh>
@@ -1460,14 +1124,7 @@
       </link>
     
       <link name='cone_47_link'>
-        <collision name='cone_47_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_47_visual'>
           <geometry>
             <mesh>
@@ -1486,14 +1143,7 @@
       </link>
     
       <link name='cone_48_link'>
-        <collision name='cone_48_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_48_visual'>
           <geometry>
             <mesh>
@@ -1512,14 +1162,7 @@
       </link>
     
       <link name='cone_49_link'>
-        <collision name='cone_49_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_49_visual'>
           <geometry>
             <mesh>
@@ -1538,14 +1181,7 @@
       </link>
     
       <link name='cone_50_link'>
-        <collision name='cone_50_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_50_visual'>
           <geometry>
             <mesh>
@@ -1564,14 +1200,7 @@
       </link>
     
       <link name='cone_51_link'>
-        <collision name='cone_51_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_51_visual'>
           <geometry>
             <mesh>
@@ -1590,14 +1219,7 @@
       </link>
     
       <link name='cone_52_link'>
-        <collision name='cone_52_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_52_visual'>
           <geometry>
             <mesh>
@@ -1616,14 +1238,7 @@
       </link>
     
       <link name='cone_53_link'>
-        <collision name='cone_53_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_53_visual'>
           <geometry>
             <mesh>
@@ -1642,14 +1257,7 @@
       </link>
     
       <link name='cone_54_link'>
-        <collision name='cone_54_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_54_visual'>
           <geometry>
             <mesh>
@@ -1668,14 +1276,7 @@
       </link>
     
       <link name='cone_55_link'>
-        <collision name='cone_55_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_55_visual'>
           <geometry>
             <mesh>
@@ -1694,14 +1295,7 @@
       </link>
     
       <link name='cone_56_link'>
-        <collision name='cone_56_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_56_visual'>
           <geometry>
             <mesh>
@@ -1720,14 +1314,7 @@
       </link>
     
       <link name='cone_57_link'>
-        <collision name='cone_57_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_57_visual'>
           <geometry>
             <mesh>
@@ -1746,14 +1333,7 @@
       </link>
     
       <link name='cone_58_link'>
-        <collision name='cone_58_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_58_visual'>
           <geometry>
             <mesh>
@@ -1772,14 +1352,7 @@
       </link>
     
       <link name='cone_59_link'>
-        <collision name='cone_59_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_59_visual'>
           <geometry>
             <mesh>
@@ -1798,14 +1371,7 @@
       </link>
     
       <link name='cone_60_link'>
-        <collision name='cone_60_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_60_visual'>
           <geometry>
             <mesh>
@@ -1824,14 +1390,7 @@
       </link>
     
       <link name='cone_61_link'>
-        <collision name='cone_61_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_61_visual'>
           <geometry>
             <mesh>
@@ -1850,14 +1409,7 @@
       </link>
     
       <link name='cone_62_link'>
-        <collision name='cone_62_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_62_visual'>
           <geometry>
             <mesh>
@@ -1876,14 +1428,7 @@
       </link>
     
       <link name='cone_63_link'>
-        <collision name='cone_63_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_63_visual'>
           <geometry>
             <mesh>
@@ -1902,14 +1447,7 @@
       </link>
     
       <link name='cone_64_link'>
-        <collision name='cone_64_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_64_visual'>
           <geometry>
             <mesh>
@@ -1928,14 +1466,7 @@
       </link>
     
       <link name='cone_65_link'>
-        <collision name='cone_65_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_65_visual'>
           <geometry>
             <mesh>
@@ -1954,14 +1485,7 @@
       </link>
     
       <link name='cone_66_link'>
-        <collision name='cone_66_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_66_visual'>
           <geometry>
             <mesh>
@@ -1980,14 +1504,7 @@
       </link>
     
       <link name='cone_67_link'>
-        <collision name='cone_67_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_67_visual'>
           <geometry>
             <mesh>
@@ -2006,14 +1523,7 @@
       </link>
     
       <link name='cone_68_link'>
-        <collision name='cone_68_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_68_visual'>
           <geometry>
             <mesh>
@@ -2032,14 +1542,7 @@
       </link>
     
       <link name='cone_69_link'>
-        <collision name='cone_69_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_69_visual'>
           <geometry>
             <mesh>
@@ -2058,14 +1561,7 @@
       </link>
     
       <link name='cone_70_link'>
-        <collision name='cone_70_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_70_visual'>
           <geometry>
             <mesh>
@@ -2084,14 +1580,7 @@
       </link>
     
       <link name='cone_71_link'>
-        <collision name='cone_71_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_71_visual'>
           <geometry>
             <mesh>
@@ -2110,14 +1599,7 @@
       </link>
     
       <link name='cone_72_link'>
-        <collision name='cone_72_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_72_visual'>
           <geometry>
             <mesh>
@@ -2136,14 +1618,7 @@
       </link>
     
       <link name='cone_73_link'>
-        <collision name='cone_73_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_73_visual'>
           <geometry>
             <mesh>
@@ -2162,14 +1637,7 @@
       </link>
     
       <link name='cone_74_link'>
-        <collision name='cone_74_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_74_visual'>
           <geometry>
             <mesh>
@@ -2188,14 +1656,7 @@
       </link>
     
       <link name='cone_75_link'>
-        <collision name='cone_75_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_75_visual'>
           <geometry>
             <mesh>
@@ -2214,14 +1675,7 @@
       </link>
     
       <link name='cone_76_link'>
-        <collision name='cone_76_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_76_visual'>
           <geometry>
             <mesh>
@@ -2240,14 +1694,7 @@
       </link>
     
       <link name='cone_77_link'>
-        <collision name='cone_77_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_77_visual'>
           <geometry>
             <mesh>
@@ -2266,14 +1713,7 @@
       </link>
     
       <link name='cone_78_link'>
-        <collision name='cone_78_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_78_visual'>
           <geometry>
             <mesh>
@@ -2292,14 +1732,7 @@
       </link>
     
       <link name='cone_79_link'>
-        <collision name='cone_79_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_79_visual'>
           <geometry>
             <mesh>
@@ -2318,14 +1751,7 @@
       </link>
     
       <link name='cone_80_link'>
-        <collision name='cone_80_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_80_visual'>
           <geometry>
             <mesh>
@@ -2344,14 +1770,7 @@
       </link>
     
       <link name='cone_81_link'>
-        <collision name='cone_81_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_81_visual'>
           <geometry>
             <mesh>
@@ -2370,14 +1789,7 @@
       </link>
     
       <link name='cone_82_link'>
-        <collision name='cone_82_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_82_visual'>
           <geometry>
             <mesh>
@@ -2396,14 +1808,7 @@
       </link>
     
       <link name='cone_83_link'>
-        <collision name='cone_83_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_83_visual'>
           <geometry>
             <mesh>
@@ -2422,14 +1827,7 @@
       </link>
     
       <link name='cone_84_link'>
-        <collision name='cone_84_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_84_visual'>
           <geometry>
             <mesh>
@@ -2448,14 +1846,7 @@
       </link>
     
       <link name='cone_85_link'>
-        <collision name='cone_85_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_85_visual'>
           <geometry>
             <mesh>
@@ -2474,14 +1865,7 @@
       </link>
     
       <link name='cone_86_link'>
-        <collision name='cone_86_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_86_visual'>
           <geometry>
             <mesh>
@@ -2500,14 +1884,7 @@
       </link>
     
       <link name='cone_87_link'>
-        <collision name='cone_87_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_87_visual'>
           <geometry>
             <mesh>
@@ -2526,14 +1903,7 @@
       </link>
     
       <link name='cone_88_link'>
-        <collision name='cone_88_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_88_visual'>
           <geometry>
             <mesh>
@@ -2552,14 +1922,7 @@
       </link>
     
       <link name='cone_89_link'>
-        <collision name='cone_89_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_89_visual'>
           <geometry>
             <mesh>
@@ -2578,14 +1941,7 @@
       </link>
     
       <link name='cone_90_link'>
-        <collision name='cone_90_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_90_visual'>
           <geometry>
             <mesh>
@@ -2604,14 +1960,7 @@
       </link>
     
       <link name='cone_91_link'>
-        <collision name='cone_91_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_91_visual'>
           <geometry>
             <mesh>
@@ -2630,14 +1979,7 @@
       </link>
     
       <link name='cone_92_link'>
-        <collision name='cone_92_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_92_visual'>
           <geometry>
             <mesh>
@@ -2656,14 +1998,7 @@
       </link>
     
       <link name='cone_93_link'>
-        <collision name='cone_93_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_93_visual'>
           <geometry>
             <mesh>
@@ -2682,14 +2017,7 @@
       </link>
     
       <link name='cone_94_link'>
-        <collision name='cone_94_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_94_visual'>
           <geometry>
             <mesh>
@@ -2708,14 +2036,7 @@
       </link>
     
       <link name='cone_95_link'>
-        <collision name='cone_95_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_95_visual'>
           <geometry>
             <mesh>
@@ -2734,14 +2055,7 @@
       </link>
     
       <link name='cone_96_link'>
-        <collision name='cone_96_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_96_visual'>
           <geometry>
             <mesh>
@@ -2760,14 +2074,7 @@
       </link>
     
       <link name='cone_97_link'>
-        <collision name='cone_97_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_97_visual'>
           <geometry>
             <mesh>
@@ -2786,14 +2093,7 @@
       </link>
     
       <link name='cone_98_link'>
-        <collision name='cone_98_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_98_visual'>
           <geometry>
             <mesh>
@@ -2812,14 +2112,7 @@
       </link>
     
       <link name='cone_99_link'>
-        <collision name='cone_99_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_99_visual'>
           <geometry>
             <mesh>
@@ -2838,14 +2131,7 @@
       </link>
     
       <link name='cone_100_link'>
-        <collision name='cone_100_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_100_visual'>
           <geometry>
             <mesh>
@@ -2864,14 +2150,7 @@
       </link>
     
       <link name='cone_101_link'>
-        <collision name='cone_101_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_101_visual'>
           <geometry>
             <mesh>
@@ -2890,14 +2169,7 @@
       </link>
     
       <link name='cone_102_link'>
-        <collision name='cone_102_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_102_visual'>
           <geometry>
             <mesh>
@@ -2916,14 +2188,7 @@
       </link>
     
       <link name='cone_103_link'>
-        <collision name='cone_103_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_103_visual'>
           <geometry>
             <mesh>
@@ -2942,14 +2207,7 @@
       </link>
     
       <link name='cone_104_link'>
-        <collision name='cone_104_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_104_visual'>
           <geometry>
             <mesh>
@@ -2968,14 +2226,7 @@
       </link>
     
       <link name='cone_105_link'>
-        <collision name='cone_105_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_105_visual'>
           <geometry>
             <mesh>
@@ -2994,14 +2245,7 @@
       </link>
     
       <link name='cone_106_link'>
-        <collision name='cone_106_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_106_visual'>
           <geometry>
             <mesh>
@@ -3020,14 +2264,7 @@
       </link>
     
       <link name='cone_107_link'>
-        <collision name='cone_107_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_107_visual'>
           <geometry>
             <mesh>
@@ -3046,14 +2283,7 @@
       </link>
     
       <link name='cone_108_link'>
-        <collision name='cone_108_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_108_visual'>
           <geometry>
             <mesh>
@@ -3072,14 +2302,7 @@
       </link>
     
       <link name='cone_109_link'>
-        <collision name='cone_109_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_109_visual'>
           <geometry>
             <mesh>
@@ -3098,14 +2321,7 @@
       </link>
     
       <link name='cone_110_link'>
-        <collision name='cone_110_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_110_visual'>
           <geometry>
             <mesh>
@@ -3124,14 +2340,7 @@
       </link>
     
       <link name='cone_111_link'>
-        <collision name='cone_111_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_111_visual'>
           <geometry>
             <mesh>
@@ -3150,14 +2359,7 @@
       </link>
     
       <link name='cone_112_link'>
-        <collision name='cone_112_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_112_visual'>
           <geometry>
             <mesh>
@@ -3176,14 +2378,7 @@
       </link>
     
       <link name='cone_113_link'>
-        <collision name='cone_113_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_113_visual'>
           <geometry>
             <mesh>
@@ -3202,14 +2397,7 @@
       </link>
     
       <link name='cone_114_link'>
-        <collision name='cone_114_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_114_visual'>
           <geometry>
             <mesh>
@@ -3228,14 +2416,7 @@
       </link>
     
       <link name='cone_115_link'>
-        <collision name='cone_115_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_115_visual'>
           <geometry>
             <mesh>
@@ -3254,14 +2435,7 @@
       </link>
     
       <link name='cone_116_link'>
-        <collision name='cone_116_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_116_visual'>
           <geometry>
             <mesh>
@@ -3280,14 +2454,7 @@
       </link>
     
       <link name='cone_117_link'>
-        <collision name='cone_117_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_117_visual'>
           <geometry>
             <mesh>
@@ -3306,14 +2473,7 @@
       </link>
     
       <link name='cone_118_link'>
-        <collision name='cone_118_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_118_visual'>
           <geometry>
             <mesh>
@@ -3332,14 +2492,7 @@
       </link>
     
       <link name='cone_119_link'>
-        <collision name='cone_119_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_119_visual'>
           <geometry>
             <mesh>
@@ -3358,14 +2511,7 @@
       </link>
     
       <link name='cone_120_link'>
-        <collision name='cone_120_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_120_visual'>
           <geometry>
             <mesh>
@@ -3384,14 +2530,7 @@
       </link>
     
       <link name='cone_121_link'>
-        <collision name='cone_121_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_121_visual'>
           <geometry>
             <mesh>
@@ -3410,14 +2549,7 @@
       </link>
     
       <link name='cone_122_link'>
-        <collision name='cone_122_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_122_visual'>
           <geometry>
             <mesh>
@@ -3436,14 +2568,7 @@
       </link>
     
       <link name='cone_123_link'>
-        <collision name='cone_123_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_123_visual'>
           <geometry>
             <mesh>
@@ -3462,14 +2587,7 @@
       </link>
     
       <link name='cone_124_link'>
-        <collision name='cone_124_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_124_visual'>
           <geometry>
             <mesh>
@@ -3488,14 +2606,7 @@
       </link>
     
       <link name='cone_125_link'>
-        <collision name='cone_125_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_125_visual'>
           <geometry>
             <mesh>
@@ -3514,14 +2625,7 @@
       </link>
     
       <link name='cone_126_link'>
-        <collision name='cone_126_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_126_visual'>
           <geometry>
             <mesh>
@@ -3540,14 +2644,7 @@
       </link>
     
       <link name='cone_127_link'>
-        <collision name='cone_127_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_127_visual'>
           <geometry>
             <mesh>
@@ -3566,14 +2663,7 @@
       </link>
     
       <link name='cone_128_link'>
-        <collision name='cone_128_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_128_visual'>
           <geometry>
             <mesh>
@@ -3592,14 +2682,7 @@
       </link>
     
       <link name='cone_129_link'>
-        <collision name='cone_129_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_129_visual'>
           <geometry>
             <mesh>
@@ -3618,14 +2701,7 @@
       </link>
     
       <link name='cone_130_link'>
-        <collision name='cone_130_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_130_visual'>
           <geometry>
             <mesh>
@@ -3644,14 +2720,7 @@
       </link>
     
       <link name='cone_131_link'>
-        <collision name='cone_131_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_131_visual'>
           <geometry>
             <mesh>
@@ -3670,14 +2739,7 @@
       </link>
     
       <link name='cone_132_link'>
-        <collision name='cone_132_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_132_visual'>
           <geometry>
             <mesh>
@@ -3696,14 +2758,7 @@
       </link>
     
       <link name='cone_133_link'>
-        <collision name='cone_133_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_133_visual'>
           <geometry>
             <mesh>
@@ -3722,14 +2777,7 @@
       </link>
     
       <link name='cone_134_link'>
-        <collision name='cone_134_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_134_visual'>
           <geometry>
             <mesh>
@@ -3748,14 +2796,7 @@
       </link>
     
       <link name='cone_135_link'>
-        <collision name='cone_135_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_135_visual'>
           <geometry>
             <mesh>
@@ -3774,14 +2815,7 @@
       </link>
     
       <link name='cone_136_link'>
-        <collision name='cone_136_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_136_visual'>
           <geometry>
             <mesh>
@@ -3800,14 +2834,7 @@
       </link>
     
       <link name='cone_137_link'>
-        <collision name='cone_137_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_137_visual'>
           <geometry>
             <mesh>
@@ -3826,14 +2853,7 @@
       </link>
     
       <link name='cone_138_link'>
-        <collision name='cone_138_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_138_visual'>
           <geometry>
             <mesh>
@@ -3852,14 +2872,7 @@
       </link>
     
       <link name='cone_139_link'>
-        <collision name='cone_139_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_139_visual'>
           <geometry>
             <mesh>
@@ -3878,14 +2891,7 @@
       </link>
     
       <link name='cone_140_link'>
-        <collision name='cone_140_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_140_visual'>
           <geometry>
             <mesh>
@@ -3904,14 +2910,7 @@
       </link>
     
       <link name='cone_141_link'>
-        <collision name='cone_141_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_141_visual'>
           <geometry>
             <mesh>
@@ -3930,14 +2929,7 @@
       </link>
     
       <link name='cone_142_link'>
-        <collision name='cone_142_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_142_visual'>
           <geometry>
             <mesh>
@@ -3956,14 +2948,7 @@
       </link>
     
       <link name='cone_143_link'>
-        <collision name='cone_143_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_143_visual'>
           <geometry>
             <mesh>
@@ -3982,14 +2967,7 @@
       </link>
     
       <link name='cone_144_link'>
-        <collision name='cone_144_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_144_visual'>
           <geometry>
             <mesh>
@@ -4008,14 +2986,7 @@
       </link>
     
       <link name='cone_145_link'>
-        <collision name='cone_145_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_145_visual'>
           <geometry>
             <mesh>
@@ -4034,14 +3005,7 @@
       </link>
     
       <link name='cone_146_link'>
-        <collision name='cone_146_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_146_visual'>
           <geometry>
             <mesh>
@@ -4060,14 +3024,7 @@
       </link>
     
       <link name='cone_147_link'>
-        <collision name='cone_147_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_147_visual'>
           <geometry>
             <mesh>
@@ -4086,14 +3043,7 @@
       </link>
     
       <link name='cone_148_link'>
-        <collision name='cone_148_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_148_visual'>
           <geometry>
             <mesh>
@@ -4112,14 +3062,7 @@
       </link>
     
       <link name='cone_149_link'>
-        <collision name='cone_149_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_149_visual'>
           <geometry>
             <mesh>
@@ -4138,14 +3081,7 @@
       </link>
     
       <link name='cone_150_link'>
-        <collision name='cone_150_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_150_visual'>
           <geometry>
             <mesh>
@@ -4164,14 +3100,7 @@
       </link>
     
       <link name='cone_152_link'>
-        <collision name='cone_152_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_152_visual'>
           <geometry>
             <mesh>
@@ -4190,14 +3119,7 @@
       </link>
     
       <link name='cone_153_link'>
-        <collision name='cone_153_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_153_visual'>
           <geometry>
             <mesh>
@@ -4216,14 +3138,7 @@
       </link>
     
       <link name='cone_154_link'>
-        <collision name='cone_154_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_154_visual'>
           <geometry>
             <mesh>
@@ -4242,14 +3157,7 @@
       </link>
     
       <link name='cone_155_link'>
-        <collision name='cone_155_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_155_visual'>
           <geometry>
             <mesh>
@@ -4268,14 +3176,7 @@
       </link>
     
       <link name='cone_156_link'>
-        <collision name='cone_156_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_156_visual'>
           <geometry>
             <mesh>
@@ -4294,14 +3195,7 @@
       </link>
     
       <link name='cone_157_link'>
-        <collision name='cone_157_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_157_visual'>
           <geometry>
             <mesh>
@@ -4320,14 +3214,7 @@
       </link>
     
       <link name='cone_158_link'>
-        <collision name='cone_158_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_158_visual'>
           <geometry>
             <mesh>
@@ -4346,14 +3233,7 @@
       </link>
     
       <link name='cone_159_link'>
-        <collision name='cone_159_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_159_visual'>
           <geometry>
             <mesh>
@@ -4372,14 +3252,7 @@
       </link>
     
       <link name='cone_160_link'>
-        <collision name='cone_160_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_160_visual'>
           <geometry>
             <mesh>
@@ -4398,14 +3271,7 @@
       </link>
     
       <link name='cone_161_link'>
-        <collision name='cone_161_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_161_visual'>
           <geometry>
             <mesh>
@@ -4424,14 +3290,7 @@
       </link>
     
       <link name='cone_162_link'>
-        <collision name='cone_162_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_162_visual'>
           <geometry>
             <mesh>
@@ -4450,14 +3309,7 @@
       </link>
     
       <link name='cone_163_link'>
-        <collision name='cone_163_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_163_visual'>
           <geometry>
             <mesh>
@@ -4476,14 +3328,7 @@
       </link>
     
       <link name='cone_164_link'>
-        <collision name='cone_164_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_164_visual'>
           <geometry>
             <mesh>
@@ -4502,14 +3347,7 @@
       </link>
     
       <link name='cone_165_link'>
-        <collision name='cone_165_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_165_visual'>
           <geometry>
             <mesh>
@@ -4528,14 +3366,7 @@
       </link>
     
       <link name='cone_166_link'>
-        <collision name='cone_166_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_166_visual'>
           <geometry>
             <mesh>
@@ -4554,14 +3385,7 @@
       </link>
     
       <link name='cone_167_link'>
-        <collision name='cone_167_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_167_visual'>
           <geometry>
             <mesh>
@@ -4580,14 +3404,7 @@
       </link>
     
       <link name='cone_168_link'>
-        <collision name='cone_168_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_168_visual'>
           <geometry>
             <mesh>
@@ -4606,14 +3423,7 @@
       </link>
     
       <link name='cone_169_link'>
-        <collision name='cone_169_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_169_visual'>
           <geometry>
             <mesh>
@@ -4632,14 +3442,7 @@
       </link>
     
       <link name='cone_170_link'>
-        <collision name='cone_170_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_170_visual'>
           <geometry>
             <mesh>
@@ -4658,14 +3461,7 @@
       </link>
     
       <link name='cone_171_link'>
-        <collision name='cone_171_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_171_visual'>
           <geometry>
             <mesh>
@@ -4684,14 +3480,7 @@
       </link>
     
       <link name='cone_172_link'>
-        <collision name='cone_172_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_172_visual'>
           <geometry>
             <mesh>
@@ -4710,14 +3499,7 @@
       </link>
     
       <link name='cone_173_link'>
-        <collision name='cone_173_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_173_visual'>
           <geometry>
             <mesh>
@@ -4736,14 +3518,7 @@
       </link>
     
       <link name='cone_174_link'>
-        <collision name='cone_174_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_174_visual'>
           <geometry>
             <mesh>
@@ -4762,14 +3537,7 @@
       </link>
     
       <link name='cone_175_link'>
-        <collision name='cone_175_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_175_visual'>
           <geometry>
             <mesh>
@@ -4788,14 +3556,7 @@
       </link>
     
       <link name='cone_176_link'>
-        <collision name='cone_176_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_176_visual'>
           <geometry>
             <mesh>
@@ -4814,14 +3575,7 @@
       </link>
     
       <link name='cone_177_link'>
-        <collision name='cone_177_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_177_visual'>
           <geometry>
             <mesh>
@@ -4840,14 +3594,7 @@
       </link>
     
       <link name='cone_178_link'>
-        <collision name='cone_178_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_178_visual'>
           <geometry>
             <mesh>
@@ -4866,14 +3613,7 @@
       </link>
     
       <link name='cone_179_link'>
-        <collision name='cone_179_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_179_visual'>
           <geometry>
             <mesh>
@@ -4892,14 +3632,7 @@
       </link>
     
       <link name='cone_180_link'>
-        <collision name='cone_180_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_180_visual'>
           <geometry>
             <mesh>
@@ -4918,14 +3651,7 @@
       </link>
     
       <link name='cone_181_link'>
-        <collision name='cone_181_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_181_visual'>
           <geometry>
             <mesh>
@@ -4944,14 +3670,7 @@
       </link>
     
       <link name='cone_182_link'>
-        <collision name='cone_182_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_182_visual'>
           <geometry>
             <mesh>
@@ -4970,14 +3689,7 @@
       </link>
     
       <link name='cone_183_link'>
-        <collision name='cone_183_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_183_visual'>
           <geometry>
             <mesh>
@@ -4996,14 +3708,7 @@
       </link>
     
       <link name='cone_184_link'>
-        <collision name='cone_184_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_184_visual'>
           <geometry>
             <mesh>
@@ -5022,14 +3727,7 @@
       </link>
     
       <link name='cone_185_link'>
-        <collision name='cone_185_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_185_visual'>
           <geometry>
             <mesh>
@@ -5048,14 +3746,7 @@
       </link>
     
       <link name='cone_186_link'>
-        <collision name='cone_186_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_186_visual'>
           <geometry>
             <mesh>
@@ -5074,14 +3765,7 @@
       </link>
     
       <link name='cone_187_link'>
-        <collision name='cone_187_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_187_visual'>
           <geometry>
             <mesh>
@@ -5100,14 +3784,7 @@
       </link>
     
       <link name='cone_188_link'>
-        <collision name='cone_188_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_188_visual'>
           <geometry>
             <mesh>
@@ -5126,14 +3803,7 @@
       </link>
     
       <link name='cone_189_link'>
-        <collision name='cone_189_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_189_visual'>
           <geometry>
             <mesh>
@@ -5152,14 +3822,7 @@
       </link>
     
       <link name='cone_190_link'>
-        <collision name='cone_190_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_190_visual'>
           <geometry>
             <mesh>
@@ -5178,14 +3841,7 @@
       </link>
     
       <link name='cone_191_link'>
-        <collision name='cone_191_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_191_visual'>
           <geometry>
             <mesh>
@@ -5204,14 +3860,7 @@
       </link>
     
       <link name='cone_192_link'>
-        <collision name='cone_192_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_192_visual'>
           <geometry>
             <mesh>
@@ -5230,14 +3879,7 @@
       </link>
     
       <link name='cone_193_link'>
-        <collision name='cone_193_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_193_visual'>
           <geometry>
             <mesh>
@@ -5256,14 +3898,7 @@
       </link>
     
       <link name='cone_194_link'>
-        <collision name='cone_194_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_194_visual'>
           <geometry>
             <mesh>
@@ -5282,14 +3917,7 @@
       </link>
     
       <link name='cone_195_link'>
-        <collision name='cone_195_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_195_visual'>
           <geometry>
             <mesh>
@@ -5308,14 +3936,7 @@
       </link>
     
       <link name='cone_196_link'>
-        <collision name='cone_196_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_196_visual'>
           <geometry>
             <mesh>
@@ -5334,14 +3955,7 @@
       </link>
     
       <link name='cone_197_link'>
-        <collision name='cone_197_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_197_visual'>
           <geometry>
             <mesh>
@@ -5360,14 +3974,7 @@
       </link>
     
       <link name='cone_198_link'>
-        <collision name='cone_198_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_198_visual'>
           <geometry>
             <mesh>
@@ -5386,14 +3993,7 @@
       </link>
     
       <link name='cone_199_link'>
-        <collision name='cone_199_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_199_visual'>
           <geometry>
             <mesh>
@@ -5412,14 +4012,7 @@
       </link>
     
       <link name='cone_200_link'>
-        <collision name='cone_200_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_200_visual'>
           <geometry>
             <mesh>
@@ -5438,14 +4031,7 @@
       </link>
     
       <link name='cone_201_link'>
-        <collision name='cone_201_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_201_visual'>
           <geometry>
             <mesh>
@@ -5464,14 +4050,7 @@
       </link>
     
       <link name='cone_202_link'>
-        <collision name='cone_202_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_202_visual'>
           <geometry>
             <mesh>
@@ -5490,14 +4069,7 @@
       </link>
     
       <link name='cone_203_link'>
-        <collision name='cone_203_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_203_visual'>
           <geometry>
             <mesh>
@@ -5516,14 +4088,7 @@
       </link>
     
       <link name='cone_204_link'>
-        <collision name='cone_204_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_204_visual'>
           <geometry>
             <mesh>
@@ -5542,14 +4107,7 @@
       </link>
     
       <link name='cone_205_link'>
-        <collision name='cone_205_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_205_visual'>
           <geometry>
             <mesh>
@@ -5568,14 +4126,7 @@
       </link>
     
       <link name='cone_206_link'>
-        <collision name='cone_206_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_206_visual'>
           <geometry>
             <mesh>
@@ -5594,14 +4145,7 @@
       </link>
     
       <link name='cone_207_link'>
-        <collision name='cone_207_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_207_visual'>
           <geometry>
             <mesh>
@@ -5620,14 +4164,7 @@
       </link>
     
       <link name='cone_208_link'>
-        <collision name='cone_208_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_208_visual'>
           <geometry>
             <mesh>
@@ -5646,14 +4183,7 @@
       </link>
     
       <link name='cone_209_link'>
-        <collision name='cone_209_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_209_visual'>
           <geometry>
             <mesh>
@@ -5672,14 +4202,7 @@
       </link>
     
       <link name='cone_210_link'>
-        <collision name='cone_210_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_210_visual'>
           <geometry>
             <mesh>
@@ -5698,14 +4221,7 @@
       </link>
     
       <link name='cone_211_link'>
-        <collision name='cone_211_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_211_visual'>
           <geometry>
             <mesh>
@@ -5724,14 +4240,7 @@
       </link>
     
       <link name='cone_212_link'>
-        <collision name='cone_212_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_212_visual'>
           <geometry>
             <mesh>
@@ -5750,14 +4259,7 @@
       </link>
     
       <link name='cone_213_link'>
-        <collision name='cone_213_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_213_visual'>
           <geometry>
             <mesh>
@@ -5776,14 +4278,7 @@
       </link>
     
       <link name='cone_214_link'>
-        <collision name='cone_214_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_214_visual'>
           <geometry>
             <mesh>
@@ -5802,14 +4297,7 @@
       </link>
     
       <link name='cone_215_link'>
-        <collision name='cone_215_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_215_visual'>
           <geometry>
             <mesh>
@@ -5828,14 +4316,7 @@
       </link>
     
       <link name='cone_216_link'>
-        <collision name='cone_216_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_216_visual'>
           <geometry>
             <mesh>
@@ -5854,14 +4335,7 @@
       </link>
     
       <link name='cone_217_link'>
-        <collision name='cone_217_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_217_visual'>
           <geometry>
             <mesh>
@@ -5880,14 +4354,7 @@
       </link>
     
       <link name='cone_218_link'>
-        <collision name='cone_218_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_218_visual'>
           <geometry>
             <mesh>
@@ -5906,14 +4373,7 @@
       </link>
     
       <link name='cone_219_link'>
-        <collision name='cone_219_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_219_visual'>
           <geometry>
             <mesh>
@@ -5932,14 +4392,7 @@
       </link>
     
       <link name='cone_220_link'>
-        <collision name='cone_220_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_220_visual'>
           <geometry>
             <mesh>
@@ -5958,14 +4411,7 @@
       </link>
     
       <link name='cone_221_link'>
-        <collision name='cone_221_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_221_visual'>
           <geometry>
             <mesh>
@@ -5984,14 +4430,7 @@
       </link>
     
       <link name='cone_222_link'>
-        <collision name='cone_222_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_222_visual'>
           <geometry>
             <mesh>
@@ -6010,14 +4449,7 @@
       </link>
     
       <link name='cone_223_link'>
-        <collision name='cone_223_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_223_visual'>
           <geometry>
             <mesh>
@@ -6036,14 +4468,7 @@
       </link>
     
       <link name='cone_224_link'>
-        <collision name='cone_224_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_224_visual'>
           <geometry>
             <mesh>
@@ -6062,14 +4487,7 @@
       </link>
     
       <link name='cone_225_link'>
-        <collision name='cone_225_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_225_visual'>
           <geometry>
             <mesh>
@@ -6088,14 +4506,7 @@
       </link>
     
       <link name='cone_226_link'>
-        <collision name='cone_226_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_226_visual'>
           <geometry>
             <mesh>
@@ -6114,14 +4525,7 @@
       </link>
     
       <link name='cone_227_link'>
-        <collision name='cone_227_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_227_visual'>
           <geometry>
             <mesh>
@@ -6140,14 +4544,7 @@
       </link>
     
       <link name='cone_228_link'>
-        <collision name='cone_228_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_228_visual'>
           <geometry>
             <mesh>
@@ -6166,14 +4563,7 @@
       </link>
     
       <link name='cone_229_link'>
-        <collision name='cone_229_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_229_visual'>
           <geometry>
             <mesh>
@@ -6192,14 +4582,7 @@
       </link>
     
       <link name='cone_230_link'>
-        <collision name='cone_230_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_230_visual'>
           <geometry>
             <mesh>
@@ -6218,14 +4601,7 @@
       </link>
     
       <link name='cone_231_link'>
-        <collision name='cone_231_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_231_visual'>
           <geometry>
             <mesh>
@@ -6244,14 +4620,7 @@
       </link>
     
       <link name='cone_232_link'>
-        <collision name='cone_232_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_232_visual'>
           <geometry>
             <mesh>
@@ -6270,14 +4639,7 @@
       </link>
     
       <link name='cone_233_link'>
-        <collision name='cone_233_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_233_visual'>
           <geometry>
             <mesh>
@@ -6296,14 +4658,7 @@
       </link>
     
       <link name='cone_234_link'>
-        <collision name='cone_234_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_234_visual'>
           <geometry>
             <mesh>
@@ -6322,14 +4677,7 @@
       </link>
     
       <link name='cone_235_link'>
-        <collision name='cone_235_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_235_visual'>
           <geometry>
             <mesh>
@@ -6348,14 +4696,7 @@
       </link>
     
       <link name='cone_236_link'>
-        <collision name='cone_236_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_236_visual'>
           <geometry>
             <mesh>
@@ -6374,14 +4715,7 @@
       </link>
     
       <link name='cone_237_link'>
-        <collision name='cone_237_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_237_visual'>
           <geometry>
             <mesh>
@@ -6400,14 +4734,7 @@
       </link>
     
       <link name='cone_238_link'>
-        <collision name='cone_238_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_238_visual'>
           <geometry>
             <mesh>
@@ -6426,14 +4753,7 @@
       </link>
     
       <link name='cone_239_link'>
-        <collision name='cone_239_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_239_visual'>
           <geometry>
             <mesh>
@@ -6452,14 +4772,7 @@
       </link>
     
       <link name='cone_240_link'>
-        <collision name='cone_240_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_240_visual'>
           <geometry>
             <mesh>
@@ -6478,14 +4791,7 @@
       </link>
     
       <link name='cone_241_link'>
-        <collision name='cone_241_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_241_visual'>
           <geometry>
             <mesh>
@@ -6504,14 +4810,7 @@
       </link>
     
       <link name='cone_242_link'>
-        <collision name='cone_242_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_242_visual'>
           <geometry>
             <mesh>
@@ -6530,14 +4829,7 @@
       </link>
     
       <link name='cone_243_link'>
-        <collision name='cone_243_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_243_visual'>
           <geometry>
             <mesh>
@@ -6556,14 +4848,7 @@
       </link>
     
       <link name='cone_244_link'>
-        <collision name='cone_244_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_244_visual'>
           <geometry>
             <mesh>
@@ -6582,14 +4867,7 @@
       </link>
     
       <link name='cone_245_link'>
-        <collision name='cone_245_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_245_visual'>
           <geometry>
             <mesh>
@@ -6608,14 +4886,7 @@
       </link>
     
       <link name='cone_246_link'>
-        <collision name='cone_246_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_246_visual'>
           <geometry>
             <mesh>
@@ -6634,14 +4905,7 @@
       </link>
     
       <link name='cone_247_link'>
-        <collision name='cone_247_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_247_visual'>
           <geometry>
             <mesh>
@@ -6660,14 +4924,7 @@
       </link>
     
       <link name='cone_248_link'>
-        <collision name='cone_248_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_248_visual'>
           <geometry>
             <mesh>
@@ -6686,14 +4943,7 @@
       </link>
     
       <link name='cone_249_link'>
-        <collision name='cone_249_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_249_visual'>
           <geometry>
             <mesh>
@@ -6712,14 +4962,7 @@
       </link>
     
       <link name='cone_250_link'>
-        <collision name='cone_250_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_250_visual'>
           <geometry>
             <mesh>
@@ -6738,14 +4981,7 @@
       </link>
     
       <link name='cone_251_link'>
-        <collision name='cone_251_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_251_visual'>
           <geometry>
             <mesh>
@@ -6764,14 +5000,7 @@
       </link>
     
       <link name='cone_252_link'>
-        <collision name='cone_252_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_252_visual'>
           <geometry>
             <mesh>
@@ -6790,14 +5019,7 @@
       </link>
     
       <link name='cone_253_link'>
-        <collision name='cone_253_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_253_visual'>
           <geometry>
             <mesh>
@@ -6816,14 +5038,7 @@
       </link>
     
       <link name='cone_254_link'>
-        <collision name='cone_254_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_254_visual'>
           <geometry>
             <mesh>
@@ -6842,14 +5057,7 @@
       </link>
     
       <link name='cone_255_link'>
-        <collision name='cone_255_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_255_visual'>
           <geometry>
             <mesh>
@@ -6868,14 +5076,7 @@
       </link>
     
       <link name='cone_256_link'>
-        <collision name='cone_256_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_256_visual'>
           <geometry>
             <mesh>
@@ -6894,14 +5095,7 @@
       </link>
     
       <link name='cone_257_link'>
-        <collision name='cone_257_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_257_visual'>
           <geometry>
             <mesh>
@@ -6920,14 +5114,7 @@
       </link>
     
       <link name='cone_258_link'>
-        <collision name='cone_258_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_258_visual'>
           <geometry>
             <mesh>
@@ -6946,14 +5133,7 @@
       </link>
     
       <link name='cone_259_link'>
-        <collision name='cone_259_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_259_visual'>
           <geometry>
             <mesh>
@@ -6972,14 +5152,7 @@
       </link>
     
       <link name='cone_260_link'>
-        <collision name='cone_260_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_260_visual'>
           <geometry>
             <mesh>
@@ -6998,14 +5171,7 @@
       </link>
     
       <link name='cone_261_link'>
-        <collision name='cone_261_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_261_visual'>
           <geometry>
             <mesh>
@@ -7024,14 +5190,7 @@
       </link>
     
       <link name='cone_262_link'>
-        <collision name='cone_262_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_262_visual'>
           <geometry>
             <mesh>
@@ -7050,14 +5209,7 @@
       </link>
     
       <link name='cone_263_link'>
-        <collision name='cone_263_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_263_visual'>
           <geometry>
             <mesh>
@@ -7076,14 +5228,7 @@
       </link>
     
       <link name='cone_264_link'>
-        <collision name='cone_264_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_264_visual'>
           <geometry>
             <mesh>
@@ -7102,14 +5247,7 @@
       </link>
     
       <link name='cone_265_link'>
-        <collision name='cone_265_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_265_visual'>
           <geometry>
             <mesh>
@@ -7128,14 +5266,7 @@
       </link>
     
       <link name='cone_266_link'>
-        <collision name='cone_266_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_266_visual'>
           <geometry>
             <mesh>
@@ -7154,14 +5285,7 @@
       </link>
     
       <link name='cone_267_link'>
-        <collision name='cone_267_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_267_visual'>
           <geometry>
             <mesh>
@@ -7180,14 +5304,7 @@
       </link>
     
       <link name='cone_268_link'>
-        <collision name='cone_268_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_268_visual'>
           <geometry>
             <mesh>
@@ -7206,14 +5323,7 @@
       </link>
     
       <link name='cone_269_link'>
-        <collision name='cone_269_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_269_visual'>
           <geometry>
             <mesh>
@@ -7232,14 +5342,7 @@
       </link>
     
       <link name='cone_270_link'>
-        <collision name='cone_270_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_270_visual'>
           <geometry>
             <mesh>
@@ -7258,14 +5361,7 @@
       </link>
     
       <link name='cone_271_link'>
-        <collision name='cone_271_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_271_visual'>
           <geometry>
             <mesh>
@@ -7284,14 +5380,7 @@
       </link>
     
       <link name='cone_272_link'>
-        <collision name='cone_272_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_272_visual'>
           <geometry>
             <mesh>
@@ -7310,14 +5399,7 @@
       </link>
     
       <link name='cone_273_link'>
-        <collision name='cone_273_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_273_visual'>
           <geometry>
             <mesh>
@@ -7336,14 +5418,7 @@
       </link>
     
       <link name='cone_274_link'>
-        <collision name='cone_274_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_274_visual'>
           <geometry>
             <mesh>
@@ -7362,14 +5437,7 @@
       </link>
     
       <link name='cone_275_link'>
-        <collision name='cone_275_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_275_visual'>
           <geometry>
             <mesh>
@@ -7388,14 +5456,7 @@
       </link>
     
       <link name='cone_276_link'>
-        <collision name='cone_276_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_276_visual'>
           <geometry>
             <mesh>
@@ -7414,14 +5475,7 @@
       </link>
     
       <link name='cone_277_link'>
-        <collision name='cone_277_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_277_visual'>
           <geometry>
             <mesh>
@@ -7440,14 +5494,7 @@
       </link>
     
       <link name='cone_278_link'>
-        <collision name='cone_278_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_278_visual'>
           <geometry>
             <mesh>
@@ -7466,14 +5513,7 @@
       </link>
     
       <link name='cone_279_link'>
-        <collision name='cone_279_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_279_visual'>
           <geometry>
             <mesh>
@@ -7492,14 +5532,7 @@
       </link>
     
       <link name='cone_280_link'>
-        <collision name='cone_280_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_280_visual'>
           <geometry>
             <mesh>
@@ -7518,14 +5551,7 @@
       </link>
     
       <link name='cone_281_link'>
-        <collision name='cone_281_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_281_visual'>
           <geometry>
             <mesh>
@@ -7544,14 +5570,7 @@
       </link>
     
       <link name='cone_282_link'>
-        <collision name='cone_282_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_282_visual'>
           <geometry>
             <mesh>
@@ -7570,14 +5589,7 @@
       </link>
     
       <link name='cone_283_link'>
-        <collision name='cone_283_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_283_visual'>
           <geometry>
             <mesh>
@@ -7596,14 +5608,7 @@
       </link>
     
       <link name='cone_284_link'>
-        <collision name='cone_284_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_284_visual'>
           <geometry>
             <mesh>
@@ -7622,14 +5627,7 @@
       </link>
     
       <link name='cone_285_link'>
-        <collision name='cone_285_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_285_visual'>
           <geometry>
             <mesh>
@@ -7648,14 +5646,7 @@
       </link>
     
       <link name='cone_286_link'>
-        <collision name='cone_286_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_286_visual'>
           <geometry>
             <mesh>
@@ -7674,14 +5665,7 @@
       </link>
     
       <link name='cone_287_link'>
-        <collision name='cone_287_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_287_visual'>
           <geometry>
             <mesh>
@@ -7700,14 +5684,7 @@
       </link>
     
       <link name='cone_288_link'>
-        <collision name='cone_288_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_288_visual'>
           <geometry>
             <mesh>
@@ -7726,14 +5703,7 @@
       </link>
     
       <link name='cone_289_link'>
-        <collision name='cone_289_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_289_visual'>
           <geometry>
             <mesh>
@@ -7752,14 +5722,7 @@
       </link>
     
       <link name='cone_290_link'>
-        <collision name='cone_290_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_290_visual'>
           <geometry>
             <mesh>
@@ -7778,14 +5741,7 @@
       </link>
     
       <link name='cone_291_link'>
-        <collision name='cone_291_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_291_visual'>
           <geometry>
             <mesh>
@@ -7804,14 +5760,7 @@
       </link>
     
       <link name='cone_292_link'>
-        <collision name='cone_292_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_292_visual'>
           <geometry>
             <mesh>
@@ -7830,14 +5779,7 @@
       </link>
     
       <link name='cone_293_link'>
-        <collision name='cone_293_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_293_visual'>
           <geometry>
             <mesh>
@@ -7856,14 +5798,7 @@
       </link>
     
       <link name='cone_294_link'>
-        <collision name='cone_294_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_294_visual'>
           <geometry>
             <mesh>
@@ -7882,14 +5817,7 @@
       </link>
     
       <link name='cone_295_link'>
-        <collision name='cone_295_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_295_visual'>
           <geometry>
             <mesh>
@@ -7908,14 +5836,7 @@
       </link>
     
       <link name='cone_296_link'>
-        <collision name='cone_296_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_296_visual'>
           <geometry>
             <mesh>
@@ -7934,14 +5855,7 @@
       </link>
     
       <link name='cone_297_link'>
-        <collision name='cone_297_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_297_visual'>
           <geometry>
             <mesh>
@@ -7960,14 +5874,7 @@
       </link>
     
       <link name='cone_298_link'>
-        <collision name='cone_298_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_298_visual'>
           <geometry>
             <mesh>
@@ -7986,14 +5893,7 @@
       </link>
     
       <link name='cone_299_link'>
-        <collision name='cone_299_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_299_visual'>
           <geometry>
             <mesh>
@@ -8012,14 +5912,7 @@
       </link>
     
       <link name='cone_300_link'>
-        <collision name='cone_300_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_300_visual'>
           <geometry>
             <mesh>
@@ -8038,14 +5931,7 @@
       </link>
     
       <link name='cone_301_link'>
-        <collision name='cone_301_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_301_visual'>
           <geometry>
             <mesh>
@@ -8064,14 +5950,7 @@
       </link>
     
       <link name='cone_302_link'>
-        <collision name='cone_302_collision'>
-          <geometry>
-            <mesh>
-              <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
-              <scale>0.001 0.001 0.001</scale>
-            </mesh>
-          </geometry>
-        </collision>
+
         <visual name='cone_302_visual'>
           <geometry>
             <mesh>
@@ -8088,10 +5967,10 @@
         <pose>10.627663188741721 28.81386465562914 0.0 1.57 0 0</pose>
         <enable_wind>false</enable_wind>
       </link>
-      <static>true</static>
-      <self_collide>false</self_collide>
-    </model>
-  </world>
-</sdf>
+        <static>true</static>
+        <self_collide>false</self_collide>
+        </model>
+    </world>
+    </sdf>
     
     

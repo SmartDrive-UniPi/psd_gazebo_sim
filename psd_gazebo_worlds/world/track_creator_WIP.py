@@ -7,9 +7,17 @@ def generate_sdf(inner, outer):
     <world name='track'>
 
         <!-- PHYSICS -->
-        <physics name="1ms" type="ignored">
+        <!-- http://sdformat.org/spec?ver=1.11&elem=physics#physics_real_time_update_rate  -->
+        <physics name="1ms" type="dart">
             <max_step_size>0.001</max_step_size>
             <real_time_factor>1.0</real_time_factor>
+            <max_contacts>1000</max_contacts>
+            <dart>
+                <solver>
+                    <solver_type>pgs</solver_type>
+                </solver>
+                <collision_detector>bullet</collision_detector>
+            </dart>
         </physics>
 
         <gravity>0 0 -9.8</gravity>
@@ -22,6 +30,7 @@ def generate_sdf(inner, outer):
         <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
         <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
         <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
+        <plugin name="gz::sim::systems::Imu" filename="gz-sim-imu-system"/>
         
         <gui fullscreen='0'>
             <!-- 3D scene -->
@@ -200,10 +209,10 @@ def generate_sdf(inner, outer):
                     </material>
                 </visual>
 
-                <pose>0 0 0 0 0 0</pose>
+                <pose>0 0 0 0 -0 0</pose>
 
                 <inertial>
-                    <pose>0 0 0 0 0.0 0</pose>
+                    <pose>0 0 0 0 -0 0</pose>
                     <mass>1</mass>
                     <inertia>
                         <ixx>1</ixx>
@@ -219,7 +228,7 @@ def generate_sdf(inner, outer):
 
             </link>
 
-            <pose>0 0 0 0 0.006 0</pose>
+            <pose>0 0 0 0 -0 0</pose>
 
             <self_collide>false</self_collide>
         </model>
@@ -227,16 +236,14 @@ def generate_sdf(inner, outer):
         <!-- ......... -->
 
         <!-- TRACK -->    
-
-        <!-- TRACK -->    
         <model name='cones'>
             <pose>0 0 0 0 0 0</pose>
             {}
-        <static>true</static>
-        <self_collide>false</self_collide>
-        </model>
-    </world>
-    </sdf>
+      <static>true</static>
+      <self_collide>false</self_collide>
+    </model>
+  </world>
+</sdf>
     
     '''
 
@@ -272,7 +279,7 @@ def generate_sdf(inner, outer):
         diffuse = '1 1 0 1'
         specular = '1 1 0 1'
 
-        cones += cone_model_template.format(i, i, ambient, diffuse, specular, pose)
+        cones += cone_model_template.format(i, i, i, ambient, diffuse, specular, pose)
 
     for i, coord in enumerate(outer):
         bias = len(inner)
@@ -286,7 +293,7 @@ def generate_sdf(inner, outer):
         specular = '0 0 1 1'
 
         idx = i + bias + 1
-        cones += cone_model_template.format(idx, idx, ambient, diffuse, specular, pose)
+        cones += cone_model_template.format(idx, idx, idx, ambient, diffuse, specular, pose)
     return sdf_template.format(cones)
 
 def scale_track(track_coordinates, scale_factor):
