@@ -166,8 +166,21 @@ def generate_launch_description():
         ]
     )
 
-    world_file = "/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_no_collision.sdf"
-    # world_file = "empty.sdf"
+    world_file = LaunchConfiguration('world_file', default='/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_no_collision.sdf')
+    declare_world_file = DeclareLaunchArgument(
+        'world_file',
+        default_value=world_file,
+        description='Full path to the world file to use in Gazebo.'
+    )
+
+    gz_sim = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([os.path.join(
+            get_package_share_directory('ros_gz_sim'),
+            'launch', 'gz_sim.launch.py')]),
+        launch_arguments={'gz_args': [world_file]}.items(),
+    )
+
+    # world_file = "/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_no_collision.sdf"
 
     # Bridge
     # https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md
@@ -235,12 +248,8 @@ def generate_launch_description():
         declare_gz_bridge_name,
         gz_bridge,
         # Launch gazebo environment
-        IncludeLaunchDescription(
-            PythonLaunchDescriptionSource(
-                [PathJoinSubstitution([FindPackageShare('ros_gz_sim'),
-                                       'launch',
-                                       'gz_sim.launch.py'])]),
-            launch_arguments=[('gz_args', [f'{world_file}'])]),
+        declare_world_file,
+        gz_sim,
 
         RegisterEventHandler(
             event_handler=OnProcessExit(

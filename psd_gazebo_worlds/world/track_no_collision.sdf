@@ -1,9 +1,7 @@
-<?xml version="1.0"?>
+<sdf version="1.9">
+    <world name="track">
 
-<sdf version='1.9'>
-    <world name='track'>
-
-        <!-- PHYSICS -->
+        
         <physics name="1ms" type="ignored">
             <max_step_size>0.001</max_step_size>
             <real_time_factor>1.0</real_time_factor>
@@ -11,17 +9,17 @@
 
         <gravity>0 0 -9.8</gravity>
         <magnetic_field>6e-06 2.3e-05 -4.2e-05</magnetic_field>
-        <atmosphere type='adiabatic'/>
+        <atmosphere type="adiabatic" />
 
-        <!-- ......... -->
-
-        <!-- PLUGINS -->
-        <plugin name='gz::sim::systems::Physics' filename='gz-sim-physics-system'/>
-        <plugin name='gz::sim::systems::UserCommands' filename='gz-sim-user-commands-system'/>
-        <plugin name='gz::sim::systems::SceneBroadcaster' filename='gz-sim-scene-broadcaster-system'/>
         
-        <gui fullscreen='0'>
-            <!-- 3D scene -->
+
+        
+        <plugin name="gz::sim::systems::Physics" filename="gz-sim-physics-system" />
+        <plugin name="gz::sim::systems::UserCommands" filename="gz-sim-user-commands-system" />
+        <plugin name="gz::sim::systems::SceneBroadcaster" filename="gz-sim-scene-broadcaster-system" />
+        
+        <gui fullscreen="0">
+            
             <plugin filename="MinimalScene" name="3D View">
                 <gz-gui>
                 <title>3D View</title>
@@ -36,7 +34,7 @@
                 <camera_pose>-6 0 6 0 0.5 0</camera_pose>
             </plugin>
 
-            <!-- Plugins that add functionality to the scene -->
+            
             <plugin filename="EntityContextMenuPlugin" name="Entity context menu">
                 <gz-gui>
                 <property key="state" type="string">floating</property>
@@ -72,35 +70,35 @@
                 <property key="showTitleBar" type="bool">false</property>
                 </gz-gui>
             </plugin>
-            <plugin name='World control' filename='WorldControl'>
+            <plugin name="World control" filename="WorldControl">
                 <gz-gui>
                     <title>World control</title>
-                    <property type='bool' key='showTitleBar'>0</property>
-                    <property type='bool' key='resizable'>0</property>
-                    <property type='double' key='height'>72</property>
-                    <property type='double' key='z'>1</property>
-                    <property type='string' key='state'>floating</property>
-                    <anchors target='3D View'>
-                        <line own='left' target='left'/>
-                        <line own='bottom' target='bottom'/>
+                    <property type="bool" key="showTitleBar">0</property>
+                    <property type="bool" key="resizable">0</property>
+                    <property type="double" key="height">72</property>
+                    <property type="double" key="z">1</property>
+                    <property type="string" key="state">floating</property>
+                    <anchors target="3D View">
+                        <line own="left" target="left" />
+                        <line own="bottom" target="bottom" />
                     </anchors>
                 </gz-gui>
                 <play_pause>1</play_pause>
                 <step>1</step>
                 <start_paused>1</start_paused>
             </plugin>
-            <plugin name='World stats' filename='WorldStats'>
+            <plugin name="World stats" filename="WorldStats">
                 <gz-gui>
                     <title>World stats</title>
-                    <property type='bool' key='showTitleBar'>0</property>
-                    <property type='bool' key='resizable'>0</property>
-                    <property type='double' key='height'>110</property>
-                    <property type='double' key='width'>290</property>
-                    <property type='double' key='z'>1</property>
-                    <property type='string' key='state'>floating</property>
-                    <anchors target='3D View'>
-                        <line own='right' target='right'/>
-                        <line own='bottom' target='bottom'/>
+                    <property type="bool" key="showTitleBar">0</property>
+                    <property type="bool" key="resizable">0</property>
+                    <property type="double" key="height">110</property>
+                    <property type="double" key="width">290</property>
+                    <property type="double" key="z">1</property>
+                    <property type="string" key="state">floating</property>
+                    <anchors target="3D View">
+                        <line own="right" target="right" />
+                        <line own="bottom" target="bottom" />
                     </anchors>
                 </gz-gui>
                 <sim_time>1</sim_time>
@@ -115,40 +113,38 @@
             <plugin filename="ImageDisplay" name="Image Display">
             </plugin>
 
-            <!-- Inspector -->
+            
             <plugin filename="ComponentInspector" name="Component inspector">
                 <ignition-gui>
                 <property type="string" key="state">docked</property>
                 </ignition-gui>
             </plugin>
 
-            <!-- Entity tree -->
+            
             <plugin filename="EntityTree" name="Entity tree">
                 <ignition-gui>
                 <property type="string" key="state">docked</property>
                 </ignition-gui>
             </plugin>
         </gui>
-        <!-- ......... -->
+        
 
-        <!-- SENSORS -->
+        
 
-        <plugin
-        filename="gz-sim-sensors-system"
-        name="gz::sim::systems::Sensors">
+        <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
         <render_engine>ogre2</render_engine>
         </plugin>
 
-        <!-- ......... -->
         
-        <!-- AMBIENT -->
+        
+        
 
         <scene>
             <ambient>1 1 1 1</ambient>
             <background>0.8 0.8 0.8 1</background>
             <shadows>1</shadows>
         </scene>
-        <light name='sun' type='directional'>
+        <light name="sun" type="directional">
             <cast_shadows>1</cast_shadows>
             <pose>0 0 10 0 0 0</pose>
             <diffuse>0.8 0.8 0.8 1</diffuse>
@@ -163,10 +159,10 @@
         </light>
 
 
-        <model name='ground_plane'>
+        <model name="ground_plane">
             <static>true</static>
-            <link name='link'>
-                <collision name='collision'>
+            <link name="link">
+                <collision name="collision">
                     <geometry>
                         <plane>
                         <normal>0 0 1</normal>
@@ -176,14 +172,14 @@
                     
                     <surface>
                         <friction>
-                            <dart/>
+                            <dart />
                         </friction>
-                        <bounce/>
-                        <contact/>
+                        <bounce />
+                        <contact />
                     </surface>
                 </collision>
 
-                <visual name='visual'>
+                <visual name="visual">
                     <geometry>
                         <plane>
                         <normal>0 0 1</normal>
@@ -216,23 +212,23 @@
 
             </link>
 
-            <pose>0 0 0 0 0.006 0</pose>
+            <pose>0 0 0 0 0 0</pose>
 
             <self_collide>false</self_collide>
         </model>
 
-        <!-- ......... -->
+        
 
-        <!-- TRACK -->    
+            
 
-        <!-- TRACK -->    
-        <model name='cones'>
+            
+        <model name="cones">
             <pose>0 0 0 0 0 0</pose>
             
     
-      <link name='cone_0_link'>
+      <link name="cone_0_link">
 
-        <visual name='cone_0_visual'>
+        <visual name="cone_0_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -249,9 +245,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_1_link'>
+      <link name="cone_1_link">
 
-        <visual name='cone_1_visual'>
+        <visual name="cone_1_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -268,9 +264,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_2_link'>
+      <link name="cone_2_link">
 
-        <visual name='cone_2_visual'>
+        <visual name="cone_2_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -287,9 +283,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_3_link'>
+      <link name="cone_3_link">
 
-        <visual name='cone_3_visual'>
+        <visual name="cone_3_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -306,9 +302,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_4_link'>
+      <link name="cone_4_link">
 
-        <visual name='cone_4_visual'>
+        <visual name="cone_4_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -325,9 +321,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_5_link'>
+      <link name="cone_5_link">
 
-        <visual name='cone_5_visual'>
+        <visual name="cone_5_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -344,9 +340,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_6_link'>
+      <link name="cone_6_link">
 
-        <visual name='cone_6_visual'>
+        <visual name="cone_6_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -363,9 +359,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_7_link'>
+      <link name="cone_7_link">
 
-        <visual name='cone_7_visual'>
+        <visual name="cone_7_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -382,9 +378,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_8_link'>
+      <link name="cone_8_link">
 
-        <visual name='cone_8_visual'>
+        <visual name="cone_8_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -401,9 +397,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_9_link'>
+      <link name="cone_9_link">
 
-        <visual name='cone_9_visual'>
+        <visual name="cone_9_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -420,9 +416,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_10_link'>
+      <link name="cone_10_link">
 
-        <visual name='cone_10_visual'>
+        <visual name="cone_10_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -439,9 +435,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_11_link'>
+      <link name="cone_11_link">
 
-        <visual name='cone_11_visual'>
+        <visual name="cone_11_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -458,9 +454,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_12_link'>
+      <link name="cone_12_link">
 
-        <visual name='cone_12_visual'>
+        <visual name="cone_12_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -477,9 +473,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_13_link'>
+      <link name="cone_13_link">
 
-        <visual name='cone_13_visual'>
+        <visual name="cone_13_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -496,9 +492,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_14_link'>
+      <link name="cone_14_link">
 
-        <visual name='cone_14_visual'>
+        <visual name="cone_14_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -515,9 +511,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_15_link'>
+      <link name="cone_15_link">
 
-        <visual name='cone_15_visual'>
+        <visual name="cone_15_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -534,9 +530,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_16_link'>
+      <link name="cone_16_link">
 
-        <visual name='cone_16_visual'>
+        <visual name="cone_16_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -553,9 +549,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_17_link'>
+      <link name="cone_17_link">
 
-        <visual name='cone_17_visual'>
+        <visual name="cone_17_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -572,9 +568,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_18_link'>
+      <link name="cone_18_link">
 
-        <visual name='cone_18_visual'>
+        <visual name="cone_18_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -591,9 +587,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_19_link'>
+      <link name="cone_19_link">
 
-        <visual name='cone_19_visual'>
+        <visual name="cone_19_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -610,9 +606,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_20_link'>
+      <link name="cone_20_link">
 
-        <visual name='cone_20_visual'>
+        <visual name="cone_20_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -629,9 +625,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_21_link'>
+      <link name="cone_21_link">
 
-        <visual name='cone_21_visual'>
+        <visual name="cone_21_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -648,9 +644,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_22_link'>
+      <link name="cone_22_link">
 
-        <visual name='cone_22_visual'>
+        <visual name="cone_22_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -667,9 +663,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_23_link'>
+      <link name="cone_23_link">
 
-        <visual name='cone_23_visual'>
+        <visual name="cone_23_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -686,9 +682,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_24_link'>
+      <link name="cone_24_link">
 
-        <visual name='cone_24_visual'>
+        <visual name="cone_24_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -705,9 +701,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_25_link'>
+      <link name="cone_25_link">
 
-        <visual name='cone_25_visual'>
+        <visual name="cone_25_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -724,9 +720,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_26_link'>
+      <link name="cone_26_link">
 
-        <visual name='cone_26_visual'>
+        <visual name="cone_26_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -743,9 +739,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_27_link'>
+      <link name="cone_27_link">
 
-        <visual name='cone_27_visual'>
+        <visual name="cone_27_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -762,9 +758,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_28_link'>
+      <link name="cone_28_link">
 
-        <visual name='cone_28_visual'>
+        <visual name="cone_28_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -781,9 +777,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_29_link'>
+      <link name="cone_29_link">
 
-        <visual name='cone_29_visual'>
+        <visual name="cone_29_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -800,9 +796,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_30_link'>
+      <link name="cone_30_link">
 
-        <visual name='cone_30_visual'>
+        <visual name="cone_30_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -819,9 +815,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_31_link'>
+      <link name="cone_31_link">
 
-        <visual name='cone_31_visual'>
+        <visual name="cone_31_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -838,9 +834,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_32_link'>
+      <link name="cone_32_link">
 
-        <visual name='cone_32_visual'>
+        <visual name="cone_32_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -857,9 +853,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_33_link'>
+      <link name="cone_33_link">
 
-        <visual name='cone_33_visual'>
+        <visual name="cone_33_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -876,9 +872,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_34_link'>
+      <link name="cone_34_link">
 
-        <visual name='cone_34_visual'>
+        <visual name="cone_34_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -895,9 +891,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_35_link'>
+      <link name="cone_35_link">
 
-        <visual name='cone_35_visual'>
+        <visual name="cone_35_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -914,9 +910,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_36_link'>
+      <link name="cone_36_link">
 
-        <visual name='cone_36_visual'>
+        <visual name="cone_36_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -933,9 +929,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_37_link'>
+      <link name="cone_37_link">
 
-        <visual name='cone_37_visual'>
+        <visual name="cone_37_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -952,9 +948,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_38_link'>
+      <link name="cone_38_link">
 
-        <visual name='cone_38_visual'>
+        <visual name="cone_38_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -971,9 +967,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_39_link'>
+      <link name="cone_39_link">
 
-        <visual name='cone_39_visual'>
+        <visual name="cone_39_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -990,9 +986,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_40_link'>
+      <link name="cone_40_link">
 
-        <visual name='cone_40_visual'>
+        <visual name="cone_40_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1009,9 +1005,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_41_link'>
+      <link name="cone_41_link">
 
-        <visual name='cone_41_visual'>
+        <visual name="cone_41_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1028,9 +1024,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_42_link'>
+      <link name="cone_42_link">
 
-        <visual name='cone_42_visual'>
+        <visual name="cone_42_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1047,9 +1043,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_43_link'>
+      <link name="cone_43_link">
 
-        <visual name='cone_43_visual'>
+        <visual name="cone_43_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1066,9 +1062,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_44_link'>
+      <link name="cone_44_link">
 
-        <visual name='cone_44_visual'>
+        <visual name="cone_44_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1085,9 +1081,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_45_link'>
+      <link name="cone_45_link">
 
-        <visual name='cone_45_visual'>
+        <visual name="cone_45_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1104,9 +1100,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_46_link'>
+      <link name="cone_46_link">
 
-        <visual name='cone_46_visual'>
+        <visual name="cone_46_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1123,9 +1119,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_47_link'>
+      <link name="cone_47_link">
 
-        <visual name='cone_47_visual'>
+        <visual name="cone_47_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1142,9 +1138,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_48_link'>
+      <link name="cone_48_link">
 
-        <visual name='cone_48_visual'>
+        <visual name="cone_48_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1161,9 +1157,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_49_link'>
+      <link name="cone_49_link">
 
-        <visual name='cone_49_visual'>
+        <visual name="cone_49_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1180,9 +1176,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_50_link'>
+      <link name="cone_50_link">
 
-        <visual name='cone_50_visual'>
+        <visual name="cone_50_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1199,9 +1195,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_51_link'>
+      <link name="cone_51_link">
 
-        <visual name='cone_51_visual'>
+        <visual name="cone_51_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1218,9 +1214,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_52_link'>
+      <link name="cone_52_link">
 
-        <visual name='cone_52_visual'>
+        <visual name="cone_52_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1237,9 +1233,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_53_link'>
+      <link name="cone_53_link">
 
-        <visual name='cone_53_visual'>
+        <visual name="cone_53_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1256,9 +1252,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_54_link'>
+      <link name="cone_54_link">
 
-        <visual name='cone_54_visual'>
+        <visual name="cone_54_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1275,9 +1271,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_55_link'>
+      <link name="cone_55_link">
 
-        <visual name='cone_55_visual'>
+        <visual name="cone_55_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1294,9 +1290,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_56_link'>
+      <link name="cone_56_link">
 
-        <visual name='cone_56_visual'>
+        <visual name="cone_56_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1313,9 +1309,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_57_link'>
+      <link name="cone_57_link">
 
-        <visual name='cone_57_visual'>
+        <visual name="cone_57_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1332,9 +1328,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_58_link'>
+      <link name="cone_58_link">
 
-        <visual name='cone_58_visual'>
+        <visual name="cone_58_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1351,9 +1347,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_59_link'>
+      <link name="cone_59_link">
 
-        <visual name='cone_59_visual'>
+        <visual name="cone_59_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1370,9 +1366,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_60_link'>
+      <link name="cone_60_link">
 
-        <visual name='cone_60_visual'>
+        <visual name="cone_60_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1389,9 +1385,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_61_link'>
+      <link name="cone_61_link">
 
-        <visual name='cone_61_visual'>
+        <visual name="cone_61_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1408,9 +1404,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_62_link'>
+      <link name="cone_62_link">
 
-        <visual name='cone_62_visual'>
+        <visual name="cone_62_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1427,9 +1423,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_63_link'>
+      <link name="cone_63_link">
 
-        <visual name='cone_63_visual'>
+        <visual name="cone_63_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1446,9 +1442,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_64_link'>
+      <link name="cone_64_link">
 
-        <visual name='cone_64_visual'>
+        <visual name="cone_64_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1465,9 +1461,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_65_link'>
+      <link name="cone_65_link">
 
-        <visual name='cone_65_visual'>
+        <visual name="cone_65_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1484,9 +1480,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_66_link'>
+      <link name="cone_66_link">
 
-        <visual name='cone_66_visual'>
+        <visual name="cone_66_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1503,9 +1499,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_67_link'>
+      <link name="cone_67_link">
 
-        <visual name='cone_67_visual'>
+        <visual name="cone_67_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1522,9 +1518,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_68_link'>
+      <link name="cone_68_link">
 
-        <visual name='cone_68_visual'>
+        <visual name="cone_68_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1541,9 +1537,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_69_link'>
+      <link name="cone_69_link">
 
-        <visual name='cone_69_visual'>
+        <visual name="cone_69_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1560,9 +1556,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_70_link'>
+      <link name="cone_70_link">
 
-        <visual name='cone_70_visual'>
+        <visual name="cone_70_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1579,9 +1575,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_71_link'>
+      <link name="cone_71_link">
 
-        <visual name='cone_71_visual'>
+        <visual name="cone_71_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1598,9 +1594,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_72_link'>
+      <link name="cone_72_link">
 
-        <visual name='cone_72_visual'>
+        <visual name="cone_72_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1617,9 +1613,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_73_link'>
+      <link name="cone_73_link">
 
-        <visual name='cone_73_visual'>
+        <visual name="cone_73_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1636,9 +1632,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_74_link'>
+      <link name="cone_74_link">
 
-        <visual name='cone_74_visual'>
+        <visual name="cone_74_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1655,9 +1651,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_75_link'>
+      <link name="cone_75_link">
 
-        <visual name='cone_75_visual'>
+        <visual name="cone_75_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1674,9 +1670,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_76_link'>
+      <link name="cone_76_link">
 
-        <visual name='cone_76_visual'>
+        <visual name="cone_76_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1693,9 +1689,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_77_link'>
+      <link name="cone_77_link">
 
-        <visual name='cone_77_visual'>
+        <visual name="cone_77_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1712,9 +1708,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_78_link'>
+      <link name="cone_78_link">
 
-        <visual name='cone_78_visual'>
+        <visual name="cone_78_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1731,9 +1727,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_79_link'>
+      <link name="cone_79_link">
 
-        <visual name='cone_79_visual'>
+        <visual name="cone_79_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1750,9 +1746,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_80_link'>
+      <link name="cone_80_link">
 
-        <visual name='cone_80_visual'>
+        <visual name="cone_80_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1769,9 +1765,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_81_link'>
+      <link name="cone_81_link">
 
-        <visual name='cone_81_visual'>
+        <visual name="cone_81_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1788,9 +1784,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_82_link'>
+      <link name="cone_82_link">
 
-        <visual name='cone_82_visual'>
+        <visual name="cone_82_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1807,9 +1803,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_83_link'>
+      <link name="cone_83_link">
 
-        <visual name='cone_83_visual'>
+        <visual name="cone_83_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1826,9 +1822,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_84_link'>
+      <link name="cone_84_link">
 
-        <visual name='cone_84_visual'>
+        <visual name="cone_84_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1845,9 +1841,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_85_link'>
+      <link name="cone_85_link">
 
-        <visual name='cone_85_visual'>
+        <visual name="cone_85_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1864,9 +1860,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_86_link'>
+      <link name="cone_86_link">
 
-        <visual name='cone_86_visual'>
+        <visual name="cone_86_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1883,9 +1879,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_87_link'>
+      <link name="cone_87_link">
 
-        <visual name='cone_87_visual'>
+        <visual name="cone_87_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1902,9 +1898,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_88_link'>
+      <link name="cone_88_link">
 
-        <visual name='cone_88_visual'>
+        <visual name="cone_88_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1921,9 +1917,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_89_link'>
+      <link name="cone_89_link">
 
-        <visual name='cone_89_visual'>
+        <visual name="cone_89_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1940,9 +1936,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_90_link'>
+      <link name="cone_90_link">
 
-        <visual name='cone_90_visual'>
+        <visual name="cone_90_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1959,9 +1955,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_91_link'>
+      <link name="cone_91_link">
 
-        <visual name='cone_91_visual'>
+        <visual name="cone_91_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1978,9 +1974,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_92_link'>
+      <link name="cone_92_link">
 
-        <visual name='cone_92_visual'>
+        <visual name="cone_92_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -1997,9 +1993,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_93_link'>
+      <link name="cone_93_link">
 
-        <visual name='cone_93_visual'>
+        <visual name="cone_93_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2016,9 +2012,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_94_link'>
+      <link name="cone_94_link">
 
-        <visual name='cone_94_visual'>
+        <visual name="cone_94_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2035,9 +2031,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_95_link'>
+      <link name="cone_95_link">
 
-        <visual name='cone_95_visual'>
+        <visual name="cone_95_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2054,9 +2050,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_96_link'>
+      <link name="cone_96_link">
 
-        <visual name='cone_96_visual'>
+        <visual name="cone_96_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2073,9 +2069,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_97_link'>
+      <link name="cone_97_link">
 
-        <visual name='cone_97_visual'>
+        <visual name="cone_97_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2092,9 +2088,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_98_link'>
+      <link name="cone_98_link">
 
-        <visual name='cone_98_visual'>
+        <visual name="cone_98_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2111,9 +2107,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_99_link'>
+      <link name="cone_99_link">
 
-        <visual name='cone_99_visual'>
+        <visual name="cone_99_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2130,9 +2126,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_100_link'>
+      <link name="cone_100_link">
 
-        <visual name='cone_100_visual'>
+        <visual name="cone_100_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2149,9 +2145,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_101_link'>
+      <link name="cone_101_link">
 
-        <visual name='cone_101_visual'>
+        <visual name="cone_101_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2168,9 +2164,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_102_link'>
+      <link name="cone_102_link">
 
-        <visual name='cone_102_visual'>
+        <visual name="cone_102_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2187,9 +2183,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_103_link'>
+      <link name="cone_103_link">
 
-        <visual name='cone_103_visual'>
+        <visual name="cone_103_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2206,9 +2202,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_104_link'>
+      <link name="cone_104_link">
 
-        <visual name='cone_104_visual'>
+        <visual name="cone_104_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2225,9 +2221,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_105_link'>
+      <link name="cone_105_link">
 
-        <visual name='cone_105_visual'>
+        <visual name="cone_105_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2244,9 +2240,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_106_link'>
+      <link name="cone_106_link">
 
-        <visual name='cone_106_visual'>
+        <visual name="cone_106_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2263,9 +2259,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_107_link'>
+      <link name="cone_107_link">
 
-        <visual name='cone_107_visual'>
+        <visual name="cone_107_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2282,9 +2278,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_108_link'>
+      <link name="cone_108_link">
 
-        <visual name='cone_108_visual'>
+        <visual name="cone_108_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2301,9 +2297,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_109_link'>
+      <link name="cone_109_link">
 
-        <visual name='cone_109_visual'>
+        <visual name="cone_109_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2320,9 +2316,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_110_link'>
+      <link name="cone_110_link">
 
-        <visual name='cone_110_visual'>
+        <visual name="cone_110_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2339,9 +2335,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_111_link'>
+      <link name="cone_111_link">
 
-        <visual name='cone_111_visual'>
+        <visual name="cone_111_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2358,9 +2354,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_112_link'>
+      <link name="cone_112_link">
 
-        <visual name='cone_112_visual'>
+        <visual name="cone_112_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2377,9 +2373,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_113_link'>
+      <link name="cone_113_link">
 
-        <visual name='cone_113_visual'>
+        <visual name="cone_113_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2396,9 +2392,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_114_link'>
+      <link name="cone_114_link">
 
-        <visual name='cone_114_visual'>
+        <visual name="cone_114_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2415,9 +2411,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_115_link'>
+      <link name="cone_115_link">
 
-        <visual name='cone_115_visual'>
+        <visual name="cone_115_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2434,9 +2430,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_116_link'>
+      <link name="cone_116_link">
 
-        <visual name='cone_116_visual'>
+        <visual name="cone_116_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2453,9 +2449,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_117_link'>
+      <link name="cone_117_link">
 
-        <visual name='cone_117_visual'>
+        <visual name="cone_117_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2472,9 +2468,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_118_link'>
+      <link name="cone_118_link">
 
-        <visual name='cone_118_visual'>
+        <visual name="cone_118_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2491,9 +2487,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_119_link'>
+      <link name="cone_119_link">
 
-        <visual name='cone_119_visual'>
+        <visual name="cone_119_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2510,9 +2506,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_120_link'>
+      <link name="cone_120_link">
 
-        <visual name='cone_120_visual'>
+        <visual name="cone_120_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2529,9 +2525,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_121_link'>
+      <link name="cone_121_link">
 
-        <visual name='cone_121_visual'>
+        <visual name="cone_121_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2548,9 +2544,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_122_link'>
+      <link name="cone_122_link">
 
-        <visual name='cone_122_visual'>
+        <visual name="cone_122_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2567,9 +2563,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_123_link'>
+      <link name="cone_123_link">
 
-        <visual name='cone_123_visual'>
+        <visual name="cone_123_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2586,9 +2582,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_124_link'>
+      <link name="cone_124_link">
 
-        <visual name='cone_124_visual'>
+        <visual name="cone_124_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2605,9 +2601,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_125_link'>
+      <link name="cone_125_link">
 
-        <visual name='cone_125_visual'>
+        <visual name="cone_125_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2624,9 +2620,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_126_link'>
+      <link name="cone_126_link">
 
-        <visual name='cone_126_visual'>
+        <visual name="cone_126_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2643,9 +2639,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_127_link'>
+      <link name="cone_127_link">
 
-        <visual name='cone_127_visual'>
+        <visual name="cone_127_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2662,9 +2658,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_128_link'>
+      <link name="cone_128_link">
 
-        <visual name='cone_128_visual'>
+        <visual name="cone_128_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2681,9 +2677,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_129_link'>
+      <link name="cone_129_link">
 
-        <visual name='cone_129_visual'>
+        <visual name="cone_129_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2700,9 +2696,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_130_link'>
+      <link name="cone_130_link">
 
-        <visual name='cone_130_visual'>
+        <visual name="cone_130_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2719,9 +2715,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_131_link'>
+      <link name="cone_131_link">
 
-        <visual name='cone_131_visual'>
+        <visual name="cone_131_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2738,9 +2734,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_132_link'>
+      <link name="cone_132_link">
 
-        <visual name='cone_132_visual'>
+        <visual name="cone_132_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2757,9 +2753,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_133_link'>
+      <link name="cone_133_link">
 
-        <visual name='cone_133_visual'>
+        <visual name="cone_133_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2776,9 +2772,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_134_link'>
+      <link name="cone_134_link">
 
-        <visual name='cone_134_visual'>
+        <visual name="cone_134_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2795,9 +2791,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_135_link'>
+      <link name="cone_135_link">
 
-        <visual name='cone_135_visual'>
+        <visual name="cone_135_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2814,9 +2810,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_136_link'>
+      <link name="cone_136_link">
 
-        <visual name='cone_136_visual'>
+        <visual name="cone_136_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2833,9 +2829,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_137_link'>
+      <link name="cone_137_link">
 
-        <visual name='cone_137_visual'>
+        <visual name="cone_137_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2852,9 +2848,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_138_link'>
+      <link name="cone_138_link">
 
-        <visual name='cone_138_visual'>
+        <visual name="cone_138_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2871,9 +2867,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_139_link'>
+      <link name="cone_139_link">
 
-        <visual name='cone_139_visual'>
+        <visual name="cone_139_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2890,9 +2886,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_140_link'>
+      <link name="cone_140_link">
 
-        <visual name='cone_140_visual'>
+        <visual name="cone_140_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2909,9 +2905,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_141_link'>
+      <link name="cone_141_link">
 
-        <visual name='cone_141_visual'>
+        <visual name="cone_141_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2928,9 +2924,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_142_link'>
+      <link name="cone_142_link">
 
-        <visual name='cone_142_visual'>
+        <visual name="cone_142_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2947,9 +2943,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_143_link'>
+      <link name="cone_143_link">
 
-        <visual name='cone_143_visual'>
+        <visual name="cone_143_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2966,9 +2962,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_144_link'>
+      <link name="cone_144_link">
 
-        <visual name='cone_144_visual'>
+        <visual name="cone_144_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -2985,9 +2981,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_145_link'>
+      <link name="cone_145_link">
 
-        <visual name='cone_145_visual'>
+        <visual name="cone_145_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3004,9 +3000,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_146_link'>
+      <link name="cone_146_link">
 
-        <visual name='cone_146_visual'>
+        <visual name="cone_146_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3023,9 +3019,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_147_link'>
+      <link name="cone_147_link">
 
-        <visual name='cone_147_visual'>
+        <visual name="cone_147_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3042,9 +3038,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_148_link'>
+      <link name="cone_148_link">
 
-        <visual name='cone_148_visual'>
+        <visual name="cone_148_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3061,9 +3057,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_149_link'>
+      <link name="cone_149_link">
 
-        <visual name='cone_149_visual'>
+        <visual name="cone_149_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3080,9 +3076,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_150_link'>
+      <link name="cone_150_link">
 
-        <visual name='cone_150_visual'>
+        <visual name="cone_150_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3099,9 +3095,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_152_link'>
+      <link name="cone_152_link">
 
-        <visual name='cone_152_visual'>
+        <visual name="cone_152_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3118,9 +3114,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_153_link'>
+      <link name="cone_153_link">
 
-        <visual name='cone_153_visual'>
+        <visual name="cone_153_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3137,9 +3133,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_154_link'>
+      <link name="cone_154_link">
 
-        <visual name='cone_154_visual'>
+        <visual name="cone_154_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3156,9 +3152,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_155_link'>
+      <link name="cone_155_link">
 
-        <visual name='cone_155_visual'>
+        <visual name="cone_155_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3175,9 +3171,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_156_link'>
+      <link name="cone_156_link">
 
-        <visual name='cone_156_visual'>
+        <visual name="cone_156_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3194,9 +3190,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_157_link'>
+      <link name="cone_157_link">
 
-        <visual name='cone_157_visual'>
+        <visual name="cone_157_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3213,9 +3209,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_158_link'>
+      <link name="cone_158_link">
 
-        <visual name='cone_158_visual'>
+        <visual name="cone_158_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3232,9 +3228,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_159_link'>
+      <link name="cone_159_link">
 
-        <visual name='cone_159_visual'>
+        <visual name="cone_159_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3251,9 +3247,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_160_link'>
+      <link name="cone_160_link">
 
-        <visual name='cone_160_visual'>
+        <visual name="cone_160_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3270,9 +3266,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_161_link'>
+      <link name="cone_161_link">
 
-        <visual name='cone_161_visual'>
+        <visual name="cone_161_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3289,9 +3285,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_162_link'>
+      <link name="cone_162_link">
 
-        <visual name='cone_162_visual'>
+        <visual name="cone_162_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3308,9 +3304,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_163_link'>
+      <link name="cone_163_link">
 
-        <visual name='cone_163_visual'>
+        <visual name="cone_163_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3327,9 +3323,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_164_link'>
+      <link name="cone_164_link">
 
-        <visual name='cone_164_visual'>
+        <visual name="cone_164_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3346,9 +3342,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_165_link'>
+      <link name="cone_165_link">
 
-        <visual name='cone_165_visual'>
+        <visual name="cone_165_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3365,9 +3361,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_166_link'>
+      <link name="cone_166_link">
 
-        <visual name='cone_166_visual'>
+        <visual name="cone_166_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3384,9 +3380,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_167_link'>
+      <link name="cone_167_link">
 
-        <visual name='cone_167_visual'>
+        <visual name="cone_167_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3403,9 +3399,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_168_link'>
+      <link name="cone_168_link">
 
-        <visual name='cone_168_visual'>
+        <visual name="cone_168_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3422,9 +3418,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_169_link'>
+      <link name="cone_169_link">
 
-        <visual name='cone_169_visual'>
+        <visual name="cone_169_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3441,9 +3437,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_170_link'>
+      <link name="cone_170_link">
 
-        <visual name='cone_170_visual'>
+        <visual name="cone_170_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3460,9 +3456,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_171_link'>
+      <link name="cone_171_link">
 
-        <visual name='cone_171_visual'>
+        <visual name="cone_171_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3479,9 +3475,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_172_link'>
+      <link name="cone_172_link">
 
-        <visual name='cone_172_visual'>
+        <visual name="cone_172_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3498,9 +3494,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_173_link'>
+      <link name="cone_173_link">
 
-        <visual name='cone_173_visual'>
+        <visual name="cone_173_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3517,9 +3513,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_174_link'>
+      <link name="cone_174_link">
 
-        <visual name='cone_174_visual'>
+        <visual name="cone_174_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3536,9 +3532,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_175_link'>
+      <link name="cone_175_link">
 
-        <visual name='cone_175_visual'>
+        <visual name="cone_175_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3555,9 +3551,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_176_link'>
+      <link name="cone_176_link">
 
-        <visual name='cone_176_visual'>
+        <visual name="cone_176_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3574,9 +3570,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_177_link'>
+      <link name="cone_177_link">
 
-        <visual name='cone_177_visual'>
+        <visual name="cone_177_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3593,9 +3589,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_178_link'>
+      <link name="cone_178_link">
 
-        <visual name='cone_178_visual'>
+        <visual name="cone_178_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3612,9 +3608,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_179_link'>
+      <link name="cone_179_link">
 
-        <visual name='cone_179_visual'>
+        <visual name="cone_179_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3631,9 +3627,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_180_link'>
+      <link name="cone_180_link">
 
-        <visual name='cone_180_visual'>
+        <visual name="cone_180_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3650,9 +3646,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_181_link'>
+      <link name="cone_181_link">
 
-        <visual name='cone_181_visual'>
+        <visual name="cone_181_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3669,9 +3665,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_182_link'>
+      <link name="cone_182_link">
 
-        <visual name='cone_182_visual'>
+        <visual name="cone_182_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3688,9 +3684,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_183_link'>
+      <link name="cone_183_link">
 
-        <visual name='cone_183_visual'>
+        <visual name="cone_183_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3707,9 +3703,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_184_link'>
+      <link name="cone_184_link">
 
-        <visual name='cone_184_visual'>
+        <visual name="cone_184_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3726,9 +3722,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_185_link'>
+      <link name="cone_185_link">
 
-        <visual name='cone_185_visual'>
+        <visual name="cone_185_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3745,9 +3741,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_186_link'>
+      <link name="cone_186_link">
 
-        <visual name='cone_186_visual'>
+        <visual name="cone_186_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3764,9 +3760,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_187_link'>
+      <link name="cone_187_link">
 
-        <visual name='cone_187_visual'>
+        <visual name="cone_187_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3783,9 +3779,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_188_link'>
+      <link name="cone_188_link">
 
-        <visual name='cone_188_visual'>
+        <visual name="cone_188_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3802,9 +3798,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_189_link'>
+      <link name="cone_189_link">
 
-        <visual name='cone_189_visual'>
+        <visual name="cone_189_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3821,9 +3817,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_190_link'>
+      <link name="cone_190_link">
 
-        <visual name='cone_190_visual'>
+        <visual name="cone_190_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3840,9 +3836,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_191_link'>
+      <link name="cone_191_link">
 
-        <visual name='cone_191_visual'>
+        <visual name="cone_191_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3859,9 +3855,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_192_link'>
+      <link name="cone_192_link">
 
-        <visual name='cone_192_visual'>
+        <visual name="cone_192_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3878,9 +3874,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_193_link'>
+      <link name="cone_193_link">
 
-        <visual name='cone_193_visual'>
+        <visual name="cone_193_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3897,9 +3893,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_194_link'>
+      <link name="cone_194_link">
 
-        <visual name='cone_194_visual'>
+        <visual name="cone_194_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3916,9 +3912,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_195_link'>
+      <link name="cone_195_link">
 
-        <visual name='cone_195_visual'>
+        <visual name="cone_195_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3935,9 +3931,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_196_link'>
+      <link name="cone_196_link">
 
-        <visual name='cone_196_visual'>
+        <visual name="cone_196_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3954,9 +3950,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_197_link'>
+      <link name="cone_197_link">
 
-        <visual name='cone_197_visual'>
+        <visual name="cone_197_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3973,9 +3969,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_198_link'>
+      <link name="cone_198_link">
 
-        <visual name='cone_198_visual'>
+        <visual name="cone_198_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -3992,9 +3988,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_199_link'>
+      <link name="cone_199_link">
 
-        <visual name='cone_199_visual'>
+        <visual name="cone_199_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4011,9 +4007,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_200_link'>
+      <link name="cone_200_link">
 
-        <visual name='cone_200_visual'>
+        <visual name="cone_200_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4030,9 +4026,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_201_link'>
+      <link name="cone_201_link">
 
-        <visual name='cone_201_visual'>
+        <visual name="cone_201_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4049,9 +4045,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_202_link'>
+      <link name="cone_202_link">
 
-        <visual name='cone_202_visual'>
+        <visual name="cone_202_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4068,9 +4064,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_203_link'>
+      <link name="cone_203_link">
 
-        <visual name='cone_203_visual'>
+        <visual name="cone_203_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4087,9 +4083,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_204_link'>
+      <link name="cone_204_link">
 
-        <visual name='cone_204_visual'>
+        <visual name="cone_204_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4106,9 +4102,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_205_link'>
+      <link name="cone_205_link">
 
-        <visual name='cone_205_visual'>
+        <visual name="cone_205_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4125,9 +4121,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_206_link'>
+      <link name="cone_206_link">
 
-        <visual name='cone_206_visual'>
+        <visual name="cone_206_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4144,9 +4140,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_207_link'>
+      <link name="cone_207_link">
 
-        <visual name='cone_207_visual'>
+        <visual name="cone_207_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4163,9 +4159,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_208_link'>
+      <link name="cone_208_link">
 
-        <visual name='cone_208_visual'>
+        <visual name="cone_208_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4182,9 +4178,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_209_link'>
+      <link name="cone_209_link">
 
-        <visual name='cone_209_visual'>
+        <visual name="cone_209_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4201,9 +4197,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_210_link'>
+      <link name="cone_210_link">
 
-        <visual name='cone_210_visual'>
+        <visual name="cone_210_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4220,9 +4216,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_211_link'>
+      <link name="cone_211_link">
 
-        <visual name='cone_211_visual'>
+        <visual name="cone_211_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4239,9 +4235,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_212_link'>
+      <link name="cone_212_link">
 
-        <visual name='cone_212_visual'>
+        <visual name="cone_212_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4258,9 +4254,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_213_link'>
+      <link name="cone_213_link">
 
-        <visual name='cone_213_visual'>
+        <visual name="cone_213_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4277,9 +4273,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_214_link'>
+      <link name="cone_214_link">
 
-        <visual name='cone_214_visual'>
+        <visual name="cone_214_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4296,9 +4292,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_215_link'>
+      <link name="cone_215_link">
 
-        <visual name='cone_215_visual'>
+        <visual name="cone_215_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4315,9 +4311,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_216_link'>
+      <link name="cone_216_link">
 
-        <visual name='cone_216_visual'>
+        <visual name="cone_216_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4334,9 +4330,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_217_link'>
+      <link name="cone_217_link">
 
-        <visual name='cone_217_visual'>
+        <visual name="cone_217_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4353,9 +4349,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_218_link'>
+      <link name="cone_218_link">
 
-        <visual name='cone_218_visual'>
+        <visual name="cone_218_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4372,9 +4368,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_219_link'>
+      <link name="cone_219_link">
 
-        <visual name='cone_219_visual'>
+        <visual name="cone_219_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4391,9 +4387,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_220_link'>
+      <link name="cone_220_link">
 
-        <visual name='cone_220_visual'>
+        <visual name="cone_220_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4410,9 +4406,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_221_link'>
+      <link name="cone_221_link">
 
-        <visual name='cone_221_visual'>
+        <visual name="cone_221_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4429,9 +4425,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_222_link'>
+      <link name="cone_222_link">
 
-        <visual name='cone_222_visual'>
+        <visual name="cone_222_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4448,9 +4444,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_223_link'>
+      <link name="cone_223_link">
 
-        <visual name='cone_223_visual'>
+        <visual name="cone_223_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4467,9 +4463,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_224_link'>
+      <link name="cone_224_link">
 
-        <visual name='cone_224_visual'>
+        <visual name="cone_224_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4486,9 +4482,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_225_link'>
+      <link name="cone_225_link">
 
-        <visual name='cone_225_visual'>
+        <visual name="cone_225_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4505,9 +4501,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_226_link'>
+      <link name="cone_226_link">
 
-        <visual name='cone_226_visual'>
+        <visual name="cone_226_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4524,9 +4520,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_227_link'>
+      <link name="cone_227_link">
 
-        <visual name='cone_227_visual'>
+        <visual name="cone_227_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4543,9 +4539,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_228_link'>
+      <link name="cone_228_link">
 
-        <visual name='cone_228_visual'>
+        <visual name="cone_228_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4562,9 +4558,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_229_link'>
+      <link name="cone_229_link">
 
-        <visual name='cone_229_visual'>
+        <visual name="cone_229_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4581,9 +4577,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_230_link'>
+      <link name="cone_230_link">
 
-        <visual name='cone_230_visual'>
+        <visual name="cone_230_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4600,9 +4596,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_231_link'>
+      <link name="cone_231_link">
 
-        <visual name='cone_231_visual'>
+        <visual name="cone_231_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4619,9 +4615,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_232_link'>
+      <link name="cone_232_link">
 
-        <visual name='cone_232_visual'>
+        <visual name="cone_232_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4638,9 +4634,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_233_link'>
+      <link name="cone_233_link">
 
-        <visual name='cone_233_visual'>
+        <visual name="cone_233_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4657,9 +4653,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_234_link'>
+      <link name="cone_234_link">
 
-        <visual name='cone_234_visual'>
+        <visual name="cone_234_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4676,9 +4672,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_235_link'>
+      <link name="cone_235_link">
 
-        <visual name='cone_235_visual'>
+        <visual name="cone_235_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4695,9 +4691,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_236_link'>
+      <link name="cone_236_link">
 
-        <visual name='cone_236_visual'>
+        <visual name="cone_236_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4714,9 +4710,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_237_link'>
+      <link name="cone_237_link">
 
-        <visual name='cone_237_visual'>
+        <visual name="cone_237_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4733,9 +4729,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_238_link'>
+      <link name="cone_238_link">
 
-        <visual name='cone_238_visual'>
+        <visual name="cone_238_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4752,9 +4748,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_239_link'>
+      <link name="cone_239_link">
 
-        <visual name='cone_239_visual'>
+        <visual name="cone_239_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4771,9 +4767,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_240_link'>
+      <link name="cone_240_link">
 
-        <visual name='cone_240_visual'>
+        <visual name="cone_240_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4790,9 +4786,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_241_link'>
+      <link name="cone_241_link">
 
-        <visual name='cone_241_visual'>
+        <visual name="cone_241_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4809,9 +4805,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_242_link'>
+      <link name="cone_242_link">
 
-        <visual name='cone_242_visual'>
+        <visual name="cone_242_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4828,9 +4824,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_243_link'>
+      <link name="cone_243_link">
 
-        <visual name='cone_243_visual'>
+        <visual name="cone_243_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4847,9 +4843,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_244_link'>
+      <link name="cone_244_link">
 
-        <visual name='cone_244_visual'>
+        <visual name="cone_244_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4866,9 +4862,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_245_link'>
+      <link name="cone_245_link">
 
-        <visual name='cone_245_visual'>
+        <visual name="cone_245_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4885,9 +4881,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_246_link'>
+      <link name="cone_246_link">
 
-        <visual name='cone_246_visual'>
+        <visual name="cone_246_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4904,9 +4900,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_247_link'>
+      <link name="cone_247_link">
 
-        <visual name='cone_247_visual'>
+        <visual name="cone_247_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4923,9 +4919,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_248_link'>
+      <link name="cone_248_link">
 
-        <visual name='cone_248_visual'>
+        <visual name="cone_248_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4942,9 +4938,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_249_link'>
+      <link name="cone_249_link">
 
-        <visual name='cone_249_visual'>
+        <visual name="cone_249_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4961,9 +4957,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_250_link'>
+      <link name="cone_250_link">
 
-        <visual name='cone_250_visual'>
+        <visual name="cone_250_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4980,9 +4976,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_251_link'>
+      <link name="cone_251_link">
 
-        <visual name='cone_251_visual'>
+        <visual name="cone_251_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -4999,9 +4995,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_252_link'>
+      <link name="cone_252_link">
 
-        <visual name='cone_252_visual'>
+        <visual name="cone_252_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5018,9 +5014,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_253_link'>
+      <link name="cone_253_link">
 
-        <visual name='cone_253_visual'>
+        <visual name="cone_253_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5037,9 +5033,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_254_link'>
+      <link name="cone_254_link">
 
-        <visual name='cone_254_visual'>
+        <visual name="cone_254_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5056,9 +5052,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_255_link'>
+      <link name="cone_255_link">
 
-        <visual name='cone_255_visual'>
+        <visual name="cone_255_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5075,9 +5071,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_256_link'>
+      <link name="cone_256_link">
 
-        <visual name='cone_256_visual'>
+        <visual name="cone_256_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5094,9 +5090,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_257_link'>
+      <link name="cone_257_link">
 
-        <visual name='cone_257_visual'>
+        <visual name="cone_257_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5113,9 +5109,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_258_link'>
+      <link name="cone_258_link">
 
-        <visual name='cone_258_visual'>
+        <visual name="cone_258_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5132,9 +5128,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_259_link'>
+      <link name="cone_259_link">
 
-        <visual name='cone_259_visual'>
+        <visual name="cone_259_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5151,9 +5147,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_260_link'>
+      <link name="cone_260_link">
 
-        <visual name='cone_260_visual'>
+        <visual name="cone_260_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5170,9 +5166,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_261_link'>
+      <link name="cone_261_link">
 
-        <visual name='cone_261_visual'>
+        <visual name="cone_261_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5189,9 +5185,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_262_link'>
+      <link name="cone_262_link">
 
-        <visual name='cone_262_visual'>
+        <visual name="cone_262_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5208,9 +5204,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_263_link'>
+      <link name="cone_263_link">
 
-        <visual name='cone_263_visual'>
+        <visual name="cone_263_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5227,9 +5223,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_264_link'>
+      <link name="cone_264_link">
 
-        <visual name='cone_264_visual'>
+        <visual name="cone_264_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5246,9 +5242,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_265_link'>
+      <link name="cone_265_link">
 
-        <visual name='cone_265_visual'>
+        <visual name="cone_265_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5265,9 +5261,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_266_link'>
+      <link name="cone_266_link">
 
-        <visual name='cone_266_visual'>
+        <visual name="cone_266_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5284,9 +5280,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_267_link'>
+      <link name="cone_267_link">
 
-        <visual name='cone_267_visual'>
+        <visual name="cone_267_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5303,9 +5299,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_268_link'>
+      <link name="cone_268_link">
 
-        <visual name='cone_268_visual'>
+        <visual name="cone_268_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5322,9 +5318,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_269_link'>
+      <link name="cone_269_link">
 
-        <visual name='cone_269_visual'>
+        <visual name="cone_269_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5341,9 +5337,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_270_link'>
+      <link name="cone_270_link">
 
-        <visual name='cone_270_visual'>
+        <visual name="cone_270_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5360,9 +5356,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_271_link'>
+      <link name="cone_271_link">
 
-        <visual name='cone_271_visual'>
+        <visual name="cone_271_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5379,9 +5375,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_272_link'>
+      <link name="cone_272_link">
 
-        <visual name='cone_272_visual'>
+        <visual name="cone_272_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5398,9 +5394,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_273_link'>
+      <link name="cone_273_link">
 
-        <visual name='cone_273_visual'>
+        <visual name="cone_273_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5417,9 +5413,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_274_link'>
+      <link name="cone_274_link">
 
-        <visual name='cone_274_visual'>
+        <visual name="cone_274_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5436,9 +5432,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_275_link'>
+      <link name="cone_275_link">
 
-        <visual name='cone_275_visual'>
+        <visual name="cone_275_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5455,9 +5451,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_276_link'>
+      <link name="cone_276_link">
 
-        <visual name='cone_276_visual'>
+        <visual name="cone_276_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5474,9 +5470,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_277_link'>
+      <link name="cone_277_link">
 
-        <visual name='cone_277_visual'>
+        <visual name="cone_277_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5493,9 +5489,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_278_link'>
+      <link name="cone_278_link">
 
-        <visual name='cone_278_visual'>
+        <visual name="cone_278_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5512,9 +5508,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_279_link'>
+      <link name="cone_279_link">
 
-        <visual name='cone_279_visual'>
+        <visual name="cone_279_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5531,9 +5527,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_280_link'>
+      <link name="cone_280_link">
 
-        <visual name='cone_280_visual'>
+        <visual name="cone_280_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5550,9 +5546,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_281_link'>
+      <link name="cone_281_link">
 
-        <visual name='cone_281_visual'>
+        <visual name="cone_281_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5569,9 +5565,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_282_link'>
+      <link name="cone_282_link">
 
-        <visual name='cone_282_visual'>
+        <visual name="cone_282_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5588,9 +5584,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_283_link'>
+      <link name="cone_283_link">
 
-        <visual name='cone_283_visual'>
+        <visual name="cone_283_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5607,9 +5603,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_284_link'>
+      <link name="cone_284_link">
 
-        <visual name='cone_284_visual'>
+        <visual name="cone_284_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5626,9 +5622,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_285_link'>
+      <link name="cone_285_link">
 
-        <visual name='cone_285_visual'>
+        <visual name="cone_285_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5645,9 +5641,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_286_link'>
+      <link name="cone_286_link">
 
-        <visual name='cone_286_visual'>
+        <visual name="cone_286_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5664,9 +5660,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_287_link'>
+      <link name="cone_287_link">
 
-        <visual name='cone_287_visual'>
+        <visual name="cone_287_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5683,9 +5679,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_288_link'>
+      <link name="cone_288_link">
 
-        <visual name='cone_288_visual'>
+        <visual name="cone_288_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5702,9 +5698,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_289_link'>
+      <link name="cone_289_link">
 
-        <visual name='cone_289_visual'>
+        <visual name="cone_289_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5721,9 +5717,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_290_link'>
+      <link name="cone_290_link">
 
-        <visual name='cone_290_visual'>
+        <visual name="cone_290_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5740,9 +5736,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_291_link'>
+      <link name="cone_291_link">
 
-        <visual name='cone_291_visual'>
+        <visual name="cone_291_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5759,9 +5755,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_292_link'>
+      <link name="cone_292_link">
 
-        <visual name='cone_292_visual'>
+        <visual name="cone_292_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5778,9 +5774,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_293_link'>
+      <link name="cone_293_link">
 
-        <visual name='cone_293_visual'>
+        <visual name="cone_293_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5797,9 +5793,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_294_link'>
+      <link name="cone_294_link">
 
-        <visual name='cone_294_visual'>
+        <visual name="cone_294_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5816,9 +5812,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_295_link'>
+      <link name="cone_295_link">
 
-        <visual name='cone_295_visual'>
+        <visual name="cone_295_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5835,9 +5831,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_296_link'>
+      <link name="cone_296_link">
 
-        <visual name='cone_296_visual'>
+        <visual name="cone_296_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5854,9 +5850,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_297_link'>
+      <link name="cone_297_link">
 
-        <visual name='cone_297_visual'>
+        <visual name="cone_297_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5873,9 +5869,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_298_link'>
+      <link name="cone_298_link">
 
-        <visual name='cone_298_visual'>
+        <visual name="cone_298_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5892,9 +5888,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_299_link'>
+      <link name="cone_299_link">
 
-        <visual name='cone_299_visual'>
+        <visual name="cone_299_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5911,9 +5907,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_300_link'>
+      <link name="cone_300_link">
 
-        <visual name='cone_300_visual'>
+        <visual name="cone_300_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5930,9 +5926,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_301_link'>
+      <link name="cone_301_link">
 
-        <visual name='cone_301_visual'>
+        <visual name="cone_301_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5949,9 +5945,9 @@
         <enable_wind>false</enable_wind>
       </link>
     
-      <link name='cone_302_link'>
+      <link name="cone_302_link">
 
-        <visual name='cone_302_visual'>
+        <visual name="cone_302_visual">
           <geometry>
             <mesh>
               <uri>/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/models/cone/meshes/cone.stl</uri>
@@ -5970,7 +5966,5 @@
         <static>true</static>
         <self_collide>false</self_collide>
         </model>
-    </world>
+    <model name="camera_model"><pose>0 0 10 0 0 0</pose><link name="link"><sensor name="camera_sensor" type="camera"><camera><horizontal_fov>1.3962634</horizontal_fov><image><width>800</width><height>600</height><format>R8G8B8</format></image><clip><near>0.1</near><far /></clip><save enabled="true" /></camera></sensor></link></model></world>
     </sdf>
-    
-    
