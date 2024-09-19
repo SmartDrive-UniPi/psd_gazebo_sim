@@ -12,8 +12,6 @@ controller_manager:
       type: forward_command_controller/ForwardCommandController
 
 
-
-# actual controllers
 effort_controller:
   ros__parameters:
     joints:

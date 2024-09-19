@@ -5,4 +5,4 @@
 [submodule "gz_ros2_control"]
 	path = gz_ros2_control
 	url = https://github.com/SmartDrive-UniPi/gz_ros2_control.git
-	branch = jazzy
+	branch = working
