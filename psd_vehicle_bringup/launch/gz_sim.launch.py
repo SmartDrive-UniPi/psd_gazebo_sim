@@ -166,7 +166,7 @@ def generate_launch_description():
         ]
     )
 
-    world_file = LaunchConfiguration('world_file', default='/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_no_collision.sdf')
+    world_file = LaunchConfiguration('world_file', default='/home/ubuntu/psd_ws/src/psd_gazebo_sim/psd_gazebo_worlds/world/track_cones.sdf')
     declare_world_file = DeclareLaunchArgument(
         'world_file',
         default_value=world_file,
@@ -230,16 +230,6 @@ def generate_launch_description():
 
         output='screen'
     )
-
-    bringup_pkg = get_package_share_directory("psd_vehicle_bringup")
-
-    robot_localization_node = Node(
-       package='robot_localization',
-       executable='ekf_node',
-       name='ekf_filter_node',
-       output='screen',
-       parameters=[os.path.join(bringup_pkg, 'config/ekf.yaml'), {'use_sim_time': True}]
-    )   
 
     return LaunchDescription([
         declare_device_namespace,
